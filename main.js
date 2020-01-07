@@ -16,7 +16,9 @@ new Vue({
     getBagsh();
   },
   methods: {
-    jishe() {},
+    jishe() {
+        //3 selectiin songogdson medeelliig surguli, tenhim, hichel ru hadgalna
+    },
     getClass() {
       //tsetsneegiin select ugugduluu beldeh heseg
       var requestOptions = {
