@@ -1,1 +1,2 @@
-tsetsnee
+tsetsnee;
+khebi;
