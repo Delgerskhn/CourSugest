@@ -27,7 +27,7 @@ new Vue({
       };
       let data;
       fetch(
-        "http://data.num.edu.mn/dataset/8679868d-004a-4a25-b4c1-0a9d36ba4945/resource/838e4aa1-b0fa-40c1-a7e4-71b9cb47fcfb/download/-2018-autumn.json",
+        "http://data.num.edu.mn/dataset/d522ffe5-e540-4ddd-b02f-4eb8ce70243d/resource/ed9ef2cd-5283-4ca0-95a2-4483c7017371/download/-2017-autumn.json",
         requestOptions
       )
         .then(response => response.text())
