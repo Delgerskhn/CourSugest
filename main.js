@@ -2,17 +2,23 @@ new Vue({
   el: ".container",
   data: {
     msg: "my message",
-    class: {},
+    class: [],
     surguuli: "",
     tenhim: "",
-    hicheel: ""
+    hicheel: "",
+    dun: [],
+    bagsh: [],
+    isLoad: false
   },
   created() {
     getClass();
+    getDun();
+    getBagsh();
   },
   methods: {
     jishe() {},
     getClass() {
+      //tsetsneegiin select ugugduluu beldeh heseg
       var requestOptions = {
         method: "GET",
         redirect: "follow"
@@ -25,6 +31,15 @@ new Vue({
         .then(response => response.text())
         .then(result => (data = result))
         .catch(error => console.log("error", error));
-    }
+    },
+    produceMarks(tenhim, hicheel) {
+      //dungee bolovsruulah heseg
+      //songogdson hicheeliin dung return hiine
+    },
+    teacherIndex(hicheel) {
+      //tuhain hichel derh bagsh nariin sanaliin indexiig return hiine
+    },
+    getDun() {},
+    getClass() {}
   }
 });
