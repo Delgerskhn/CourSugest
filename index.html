@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CourSugest</title>
-    <script src="./vueDoc.js"></script>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">{{msg}}</div>
-      <div class="body">
-        <input placeholder="Salbar surguuli" class="Department"></input>
-        <input placeholder="Tenhim" class="Tenhim"></input>
-        <input placeholder="Hicheel" class="Hicheel"></input>
-        <button @click="jishe()">Search</button>
-      </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>CourSugest</title>
+  <script src="./vueDoc.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">{{msg}}</div>
+    <div class="body">
+      <input placeholder="Salbar surguuli" class="Department"></input>
+      <input placeholder="Tenhim" class="Tenhim"></input>
+      <input placeholder="Hicheel" class="Hicheel"></input>
+      <button @click="jishe()">Search</button>
     </div>
-   
-    <script src="./main.js"></script>
-  </body>
+    <div v-if="isLoad" class="bagsh">bagsh</div>
+    <!-- <h1 v-for="b in bagsh">{{b.Багшийн_нэр}} {{b.index}}</h1> -->
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+
 </html>
