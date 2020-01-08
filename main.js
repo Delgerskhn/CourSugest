@@ -5,7 +5,7 @@ new Vue({
     class: [],
     surguuli: "",
     tenhim: "",
-    hicheel: "",
+    hicheel: "Биеийн тамир (Ерөнхий суурь)",
     dun: [],
     bagsh: [],
     isLoad: false
@@ -17,7 +17,12 @@ new Vue({
   },
   methods: {
     jishe() {
-      console.log(bagsh);
+      let filter = this.bagsh.filter(
+        data => data.Хичээлийн_нэр === this.hicheel
+      );
+      this.bagsh = filter;
+      this.isLoad = true;
+      console.log(this.bagsh);
     },
     getClass() {
       //tsetsneegiin select ugugduluu beldeh heseg
@@ -47,15 +52,13 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let data;
       fetch(
         " http://data.num.edu.mn/dataset/787c396b-9ccc-4687-bd3a-71c345bc7fe3/resource/9901ef64-5539-4e05-9b70-1feffaecd615/download/-2018-autumn.json",
         requestOptions
       )
         .then(response => response.json())
         .then(result => {
-          bagsh = result;
-          console.log(bagsh);
+          this.bagsh = result;
         })
         .catch(error => console.log("error", error));
     }
