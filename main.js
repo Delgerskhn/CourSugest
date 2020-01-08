@@ -11,26 +11,34 @@ new Vue({
     isLoad: false
   },
   created() {
-    getClass();
-    getDun();
-    getBagsh();
+    this.getClass();
+    this.getDun();
+    this.getBagsh();
   },
   methods: {
-    jishe() {},
+    jishe() {
+      console.log("jishe");
+    },
+    save(data) {
+      this.bagsh = data;
+    },
     getClass() {
       //tsetsneegiin select ugugduluu beldeh heseg
       var requestOptions = {
         method: "GET",
         redirect: "follow"
       };
-      let data;
       fetch(
         "http://data.num.edu.mn/dataset/d522ffe5-e540-4ddd-b02f-4eb8ce70243d/resource/ed9ef2cd-5283-4ca0-95a2-4483c7017371/download/-2017-autumn.json",
         requestOptions
       )
-        .then(response => response.text())
-        .then(result => (data = result))
+        .then(response => response.json())
+        .then(result => {
+          console.log(result);
+          this.bagsh = result;
+        })
         .catch(error => console.log("error", error));
+      console.log("getclass");
     },
     produceMarks(tenhim, hicheel) {
       //dungee bolovsruulah heseg
@@ -40,6 +48,6 @@ new Vue({
       //tuhain hichel derh bagsh nariin sanaliin indexiig return hiine
     },
     getDun() {},
-    getClass() {}
+    getBagsh() {}
   }
 });
