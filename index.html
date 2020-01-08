@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=El+Messiri|Fredoka+One|Lobster&display=swap" rel="stylesheet">
+  <script src="./vueDoc.js"></script>
   <title>CourSuggest</title>
 </head>
 <body>
@@ -51,7 +52,8 @@
           <option value="6">6</option>
           <option value="7">7</option>
         </select></div>
-        <div class="button"><button style="border: 0;background-color:#83b5de ; border-radius: 10px;"type="submit" ><i class="fab fa-searchengin"></i> Хайх</button></div></div>
+        <div class="button">
+          <button style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit" @click=jishe()><i class="fab fa-searchengin"></i> Хайх</button></div></div>
       <div class="container2">
         <div class="cont2">
           <div>Хичээлийн дүн</h2></div>
@@ -69,23 +71,17 @@
               <li>.</li>
             </ul>
           </div>
-          <div class="list">
-            <ul>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
+          <div v-if="isLoad" class="list">
+            <ul v-for="b in bagsh">
+              <li><span style="float: left;">{{b.Багшийн_нэр}}</span><span style="float: right;">{{b.index}}</span></li>
             </ul>
         </div>
       </div>
       </div> 
     </div>
-    <script src="./main.js"></script>
     <div class="footer">Created By: Coursuggest<sup><i class="fab fa-connectdevelop"></i></sup> team</div>
   </div>
+  <script src="./main.js"></script>
   
 </body>
 </html>
