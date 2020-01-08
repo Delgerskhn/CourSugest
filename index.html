@@ -16,7 +16,7 @@
         <input placeholder="Tenhim" class="Tenhim"></input>
         <input placeholder="Hicheel" class="Hicheel"></input>
         <button @click="jishe()">Search</button>
-        <div v-if=" isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}</div>
+        <div v-if=" isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}:{{b.index}}</div>
       </div>
     </div>
     <script src="./main.js"></script>
