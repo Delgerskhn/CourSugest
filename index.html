@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,80 +11,84 @@
   <script src="./vueDoc.js"></script>
   <title>CourSuggest</title>
 </head>
+
 <body>
   <div class="main">
     <div class="header">
-      <div class="Suggest"><h1 style="font-size: 25px;font-family: 'Fredoka One', cursive;">CourSuggest<sup><i class="fab fa-connectdevelop"></i></sup></h1> <p style="font-size: 13px;font-family: 'Lobster', cursive;">Хичээл сонголтын туслах</p></div>
-      <div class="head-item"><a href=""><i class="fas fa-igloo"></i>  Home</a></div>
-      <div class="head-item"><a href=""><i class="fab fa-audible"></i>  About</a></div>
-      <div class="head-item"><a href=""><i class="fas fa-tty"></i>  Contact</a></div>
+      <div class="Suggest">
+        <h1 style="font-size: 25px;font-family: 'Fredoka One', cursive;">CourSuggest<sup><i
+              class="fab fa-connectdevelop"></i></sup></h1>
+        <p style="font-size: 13px;font-family: 'Lobster', cursive;">Хичээл сонголтын туслах</p>
+      </div>
+      <div class="head-item"><a href=""><i class="fas fa-igloo"></i> Home</a></div>
+      <div class="head-item"><a href=""><i class="fab fa-audible"></i> About</a></div>
+      <div class="head-item"><a href=""><i class="fas fa-tty"></i> Contact</a></div>
     </div>
     <div class="body">
       <div class="container1">
         <div class="button">
           <select>
-          <option value="0"selected disabled hidden>Салбар Сургууль</option>
-        <option value="1">ХШУИС</option>
-        <option value="2">БС</option>
-        <option value="3">ХЗС</option>
-        <option value="4">НУС</option>
-        <option value="5">БУС</option>
-        <option value="6">ХУС</option>
-        <option value="7">ОУХНУС</option>
-      </select>
+            <option value="0" selected disabled hidden>Салбар Сургууль</option>
+            <option value="1">ХШУИС</option>
+            <option value="2">БС</option>
+            <option value="3">ХЗС</option>
+            <option value="4">НУС</option>
+            <option value="5">БУС</option>
+            <option value="6">ХУС</option>
+            <option value="7">ОУХНУС</option>
+          </select>
         </div>
         <div class="button"><select>
-          <option value="0"selected disabled hidden>Тэнхим</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">7</option>
-          <option value="6">8</option>
-          <option value="7">9</option>
-        </select></div>
+            <option value="0" selected disabled hidden>Тэнхим</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">7</option>
+            <option value="6">8</option>
+            <option value="7">9</option>
+          </select></div>
         <div class="button"><select>
-          <option value="0" selected disabled hidden>Хичээл</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-        </select></div>
+            <option value="0" selected disabled hidden>Хичээл</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select></div>
         <div class="button">
-          <button style="border: 0;color:white; background-color:  #204261 ; font-family: 'Oranienbaum', serif; border-radius: 10px;" type="submit" @click=jishe()><i class="fab fa-searchengin"></i> Хайх</button>
+          <button @click="search()" style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit">
+            <i class="fab fa-searchengin"></i> Хайх
+          </button>
         </div>
-    </div>
+      </div>
       <div class="container2">
         <div class="cont2">
-          <div><h2>Хичээлийн дүн  <i style="color: #204261;"class="fas fa-chart-bar"></i></h2></div>
-          <div><h2>Багш нар  <i style="color: #204261;"class="fas fa-chalkboard-teacher"></i></h2></div>
+          <div>Хичээлийн дүн</h2>
+          </div>
+          <div>Багш нар</div>
         </div>
         <div class="cont3">
           <div style="background-color: #b7d0f7;" class="list">
             <ul>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
+              <li v-if="isDun" v-for="d in dun">{{d.Үсгэн_дүн}}: {{d.Үсгэн_дүн_тоо}}</li>
+
             </ul>
           </div>
-          <div style="background-color: #b7d0f7;" v-if="isLoad" class="list">
-            <ul v-for="b in bagsh">
-              <li style="font-family: 'Oranienbaum', serif;"><span style="float: left;">{{b.Багшийн_нэр}}</span><span style="float: right;">{{b.index}}</span></li>
+          <div class="list">
+            <ul>
+              <li v-if="isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}: {{b.index.toFixed(2)}}</li>
             </ul>
+          </div>
         </div>
       </div>
-      </div> 
     </div>
     <div class="footer">Created By: Coursuggest<sup><i class="fab fa-connectdevelop"></i></sup> team</div>
   </div>
   <script src="./main.js"></script>
-  
+
 </body>
+
 </html>
