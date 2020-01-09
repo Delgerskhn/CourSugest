@@ -1,5 +1,5 @@
 new Vue({
-  el: ".main",
+  el: ".container",
   data: {
     msg: "message",
     class: [],
@@ -40,7 +40,7 @@ new Vue({
       );
       let avg = filter[0].Санал_өгсөн_суралцагчийн_тоо / filter.length;
       filter.forEach(element => {
-        element.index = (element.Багшид_өгсөн_санал / avg).toFixed(2);
+        element.index = element.Багшид_өгсөн_санал / avg;
       });
       this.bagsh = filter;
       this.bagsh.sort((a, b) => {
