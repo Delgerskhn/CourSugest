@@ -5,7 +5,8 @@ html {
 }
 .main {
   display: grid;
-  grid-template-rows: 80px 620px 40px;
+  margin: 0 auto;
+  grid-template-rows: 80px auto 40px;
   grid-row-gap: 3px;
 }
 .header {
@@ -28,16 +29,26 @@ h1 {
 }
 .body {
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 50px auto auto;
   background-color: #f2f6ff;
 }
+.about{
+  text-align: center;
+  background-color: rgb(32, 65, 96, 0.2) ;
+  display: grid;
+  grid-template-rows: auto auto;
+  padding: 5px; 
+  margin: 0 12%;
+  border-radius: 2px;
+}
 .footer {
-  background-color: #204261;
+  background-color: rgb(32, 65, 96);
   text-align: center;
   line-height: 40px;
   color: white;
   border-radius: 0 0 10px 10px;
   font-family: 'Lobster', cursive;
+  float: bottom;
 }
 .head-item {
   margin-top: 30px;
@@ -52,12 +63,32 @@ a:hover {
   font-size: large;
 }
 .container1 {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+  text-align: center;
+  margin-top: 10px;
+
 }
 .button {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 20px;
+}
+button {
+  border: 0;
+  background-color: rgb(131, 181, 222) ; 
+  border-radius: 2px; 
+  height: 27px; 
+  text-align: center; 
+  color: #204261; 
+  box-shadow: 1px 1px 1px #204261;
+}
+.side-info{
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto;
+  grid-row-gap: 2px;
+  padding: 5px;
+}
+.name{
+  background-color: rgb(32, 65, 96, 0.1);
+  
 }
 select {
   border: 2px #204261;
@@ -84,13 +115,40 @@ select {
   display: grid;
   grid-template-columns: 360.99px 360.99px;
   grid-column-gap: auto;
-  margin-left: auto; margin-right: auto;
+  margin-left: auto; 
+  margin-right: auto;
 }
 .title {
   padding: auto;
 }
 .list{
-  padding: 10px;
+  display: grid;
+  grid-template-rows: 40px auto;
+  padding: 0;
   margin: 10px 2px;
   border-radius: 10px;
+}
+.subtitle{
+  display:grid;
+  grid-template-columns: auto auto;
+  background-color: #6a747a;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 10px;
+}
+.wrap{
+  display: grid;
+  grid-template-rows: auto;
+  background-color: #bdbdbd;
+}
+.data{
+  display: grid;
+  grid-template-columns: auto auto;
+  text-align: center;
+}
+.info{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 0 11%;
+  background-color: rgb(131, 181, 222, 0.2);
 }
