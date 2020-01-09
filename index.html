@@ -1,24 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>CourSugest</title>
-    <script src="./vueDoc.js"></script>
-    <link rel="stylesheet" href="./style.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">{{msg}}</div>
-      <div class="body">
-        <input placeholder="Salbar surguuli" class="Department"></input>
-        <input placeholder="Tenhim" class="Tenhim"></input>
-        <input placeholder="Hicheel" class="Hicheel"></input>
-        <button @click="jishe()">Search</button>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=El+Messiri|Fredoka+One|Lobster|Marmelad|Oranienbaum|Tenor+Sans&display=swap" rel="stylesheet">
+  <script src="./vueDoc.js"></script>
+  <title>CourSuggest</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="header">
+      <div class="Suggest">
+        <h1 style="font-size: 25px;font-family: 'Fredoka One', cursive;">CourSuggest<sup><i
+              class="fab fa-connectdevelop"></i></sup></h1>
+        <p style="font-size: 13px;font-family: 'Lobster', cursive;">Хичээл сонголтын туслах</p>
+      </div>
+      <div class="head-item"><a href=""><i class="fas fa-igloo"></i> Home</a></div>
+      <div class="head-item"><a href=""><i class="fab fa-audible"></i> About</a></div>
+      <div class="head-item"><a href=""><i class="fas fa-tty"></i> Contact</a></div>
+    </div>
+    <div class="body">
+      <div class="container1">
+        <div class="button">
+          <select>
+            <option value="0" selected disabled hidden>Салбар Сургууль</option>
+            <option value="1">ХШУИС</option>
+            <option value="2">БС</option>
+            <option value="3">ХЗС</option>
+            <option value="4">НУС</option>
+            <option value="5">БУС</option>
+            <option value="6">ХУС</option>
+            <option value="7">ОУХНУС</option>
+          </select>
+        </div>
+        <div class="button"><select>
+            <option value="0" selected disabled hidden>Тэнхим</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">7</option>
+            <option value="6">8</option>
+            <option value="7">9</option>
+          </select></div>
+        <div class="button"><select>
+            <option value="0" selected disabled hidden>Хичээл</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+          </select></div>
+        <div class="button">
+          <button @click="search()" style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit">
+            <i class="fab fa-searchengin"></i> Хайх
+          </button>
+        </div>
+      </div>
+      <div class="container2">
+        <div class="cont2">
+          <div>Хичээлийн дүн <i style="color: #204261;" class="fas fa-chart-bar"></i></h2>
+          </div>
+          <div>Багш нар <i style="color: #204261;"class="fas fa-chalkboard-teacher"></i></div>
+        </div>
+        <div class="cont3">
+          <div style="background-color: #b7d0f7;" class="list">
+            <ul>
+              <li v-if="isDun" v-for="d in dun">{{d.Үсгэн_дүн}}: {{d.Үсгэн_дүн_тоо}}</li>
+
+            </ul>
+          </div>
+          <div class="list" style="background-color: #b7d0f7;">
+            <ul>
+              <li v-if="isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}: {{b.index.toFixed(2)}}</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
-   
-    <script src="./main.js"></script>
-  </body>
+    <div class="footer">Created By: Coursuggest<sup><i class="fab fa-connectdevelop"></i></sup> team</div>
+  </div>
+  <script src="./main.js"></script>
+
+</body>
+
 </html>

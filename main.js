@@ -1,23 +1,40 @@
 new Vue({
-  el: ".container",
+  el: ".main",
   data: {
-    msg: "my message",
+    msg: "message",
     class: [],
     surguuli: "",
-    tenhim: "",
-    hicheel: "",
+    tenhim: "Биеийн тамирын тэнхим",
+    hicheel: "Биеийн тамир (Ерөнхий суурь)",
     dun: [],
     bagsh: [],
-    isLoad: false
+    isLoad: false,
+    isDun: false,
   },
   created() {
-    getClass();
-    getDun();
-    getBagsh();
+    // this.getClass();
+    // getDun();
+    this.getBagsh();
+    this.getDun();
+  },
+  computed: {
+    getBagsh() {
+
+    }
+  },
+  watch: {
+
   },
   methods: {
+<<<<<<< HEAD
     jishe() {
         //3 selectiin songogdson medeelliig surguli, tenhim, hichel ru hadgalna
+=======
+    search() {
+      this.teacherIndex();
+      this.produceMarks();
+      console.log(this.bagsh);
+>>>>>>> 328dc08b26706a5dd9200bc4cd6334ba7eb06a57
     },
     getClass() {
       //tsetsneegiin select ugugduluu beldeh heseg
@@ -25,23 +42,64 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let data;
       fetch(
         "http://data.num.edu.mn/dataset/d522ffe5-e540-4ddd-b02f-4eb8ce70243d/resource/ed9ef2cd-5283-4ca0-95a2-4483c7017371/download/-2017-autumn.json",
         requestOptions
       )
-        .then(response => response.text())
-        .then(result => (data = result))
+        .then(response => response.json())
+        .then(result => console.log(result))
         .catch(error => console.log("error", error));
+      console.log("getclass");
     },
     produceMarks(tenhim, hicheel) {
       //dungee bolovsruulah heseg
       //songogdson hicheeliin dung return hiine
+      let filter = this.dun.filter(data => data.Хичээлийн_харьялах_нэгж === this.tenhim && data.Хичээлийн_нэр === this.hicheel);
+      this.dun = filter;
+      this.isDun = true;
     },
     teacherIndex(hicheel) {
       //tuhain hichel derh bagsh nariin sanaliin indexiig return hiine
+      let filter = this.bagsh.filter(
+        data => data.Хичээлийн_нэр === this.hicheel
+      );
+      let avg = filter[0].Санал_өгсөн_суралцагчийн_тоо / filter.length;
+      filter.forEach(element => {
+        element.index = element.Багшид_өгсөн_санал / avg;
+      });
+      filter.sort((a, b) => {
+        return a.index < b.index ? 1 : -1;
+      });
+      this.bagsh = filter;
+      this.isLoad = true;
     },
-    getDun() {},
-    getClass() {}
+    getDun() {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch(
+        "http://data.num.edu.mn/dataset/b22cc3d9-412b-4919-a777-6aa954dc110b/resource/a40b1a18-be1d-49c2-9e6e-c18f887ca763/download/-2018-autumn.json",
+        requestOptions
+      )
+        .then(response => response.json())
+        .then(result => { console.log('fetched dun'); this.dun = result })
+        .catch(error => console.log("error", error));
+    },
+    getBagsh() {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch(
+        " http://data.num.edu.mn/dataset/787c396b-9ccc-4687-bd3a-71c345bc7fe3/resource/9901ef64-5539-4e05-9b70-1feffaecd615/download/-2018-autumn.json",
+        requestOptions
+      )
+        .then(response => response.json())
+        .then(result => {
+          this.bagsh = result;
+        })
+        .catch(error => console.log("error", error));
+    }
   }
 });
