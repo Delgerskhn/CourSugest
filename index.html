@@ -59,7 +59,7 @@
             <option value="7">7</option>
           </select></div>
         <div class="button">
-          <button @click="submit()" style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit">
+          <button @click="search()" style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit">
             <i class="fab fa-searchengin"></i> Хайх
           </button>
         </div>
@@ -73,18 +73,13 @@
         <div class="cont2">
           <div class="list">
             <ul>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
-              <li>.</li>
+              <li v-if="isDun" v-for="d in dun">{{d.Үсгэн_дүн}}: {{d.Үсгэн_дүн_тоо}}</li>
+
             </ul>
           </div>
           <div class="list">
             <ul>
-              <li v-if="isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}} {{b.index.toFixed(2)}}</li>
+              <li v-if="isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}: {{b.index.toFixed(2)}}</li>
             </ul>
           </div>
         </div>
