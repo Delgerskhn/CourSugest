@@ -1,11 +1,11 @@
 new Vue({
   el: ".container",
   data: {
-    msg: "my message",
+    msg: "message",
     class: [],
     surguuli: "",
     tenhim: "",
-    hicheel: "",
+    hicheel: "Биеийн тамир (Ерөнхий суурь)",
     dun: [],
     bagsh: [],
     isLoad: false,
@@ -35,7 +35,19 @@ new Vue({
   },
   methods: {
     jishe() {
-      console.log(bagsh);
+      let filter = this.bagsh.filter(
+        data => data.Хичээлийн_нэр === this.hicheel
+      );
+      let avg = filter[0].Санал_өгсөн_суралцагчийн_тоо / filter.length;
+      filter.forEach(element => {
+        element.index = element.Багшид_өгсөн_санал / avg;
+      });
+      this.bagsh = filter;
+      this.bagsh.sort((a, b) => {
+        return a.index < b.index ? 1 : -1;
+      });
+      this.isLoad = true;
+      console.log(this.bagsh);
     },
     getClass() {
       //tsetsneegiin select ugugduluu beldeh heseg
