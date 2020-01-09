@@ -1,5 +1,5 @@
 new Vue({
-  el: ".container",
+  el: ".main",
   data: {
     msg: "message",
     class: [],
@@ -21,20 +21,10 @@ new Vue({
     }
   },
   watch: {
-    bagsh: function (val) {
 
-      let filter = val.filter(item => (item.Хичээлийн_нэр === "Анхан шатны солонгос хэлний унших бичих "))
-      let dundaj = filter[0].Санал_өгсөн_суралцагчийн_тоо / filter.length;
-      filter.forEach(item => {
-        item.index = item.Багшид_өгсөн_санал / dundaj;
-      })
-      this.bagsh = filter;
-      console.log(this.bagsh)
-      this.isLoad = true;
-    }
   },
   methods: {
-    jishe() {
+    search() {
       let filter = this.bagsh.filter(
         data => data.Хичээлийн_нэр === this.hicheel
       );
