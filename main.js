@@ -62,10 +62,10 @@ new Vue({
       filter.forEach(element => {
         element.index = element.Багшид_өгсөн_санал / avg;
       });
-      this.bagsh = filter;
-      this.bagsh.sort((a, b) => {
+      filter.sort((a, b) => {
         return a.index < b.index ? 1 : -1;
       });
+      this.bagsh = filter;
       this.isLoad = true;
     },
     getDun() {
