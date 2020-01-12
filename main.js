@@ -9,22 +9,18 @@ new Vue({
     dun: [],
     bagsh: [],
     isLoad: false,
-    isDun: false,
+    isDun: false
   },
   created() {
-    // this.getClass();
+    this.getClass();
     // getDun();
     this.getBagsh();
     this.getDun();
   },
   computed: {
-    getBagsh() {
-
-    }
+    getBagsh() {}
   },
-  watch: {
-
-  },
+  watch: {},
   methods: {
     search() {
       this.teacherIndex();
@@ -42,14 +38,21 @@ new Vue({
         requestOptions
       )
         .then(response => response.json())
-        .then(result => console.log(result))
+        .then(result => {
+          console.log("fetched class");
+          this.class = result;
+        })
         .catch(error => console.log("error", error));
       console.log("getclass");
     },
     produceMarks(tenhim, hicheel) {
       //dungee bolovsruulah heseg
       //songogdson hicheeliin dung return hiine
-      let filter = this.dun.filter(data => data.Хичээлийн_харьялах_нэгж === this.tenhim && data.Хичээлийн_нэр === this.hicheel);
+      let filter = this.dun.filter(
+        data =>
+          data.Хичээлийн_харьялах_нэгж === this.tenhim &&
+          data.Хичээлийн_нэр === this.hicheel
+      );
       this.dun = filter;
       this.isDun = true;
     },
@@ -78,7 +81,10 @@ new Vue({
         requestOptions
       )
         .then(response => response.json())
-        .then(result => { console.log('fetched dun'); this.dun = result })
+        .then(result => {
+          console.log("fetched dun");
+          this.dun = result;
+        })
         .catch(error => console.log("error", error));
     },
     getBagsh() {
