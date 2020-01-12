@@ -26,42 +26,31 @@
     </div>
     <div class="body">
       <div class="container1">
-        <div class="button">
-          <select>
-            <option value="0" selected disabled hidden>Салбар Сургууль</option>
-            <option value="1">ХШУИС</option>
-            <option value="2">БС</option>
-            <option value="3">ХЗС</option>
-            <option value="4">НУС</option>
-            <option value="5">БУС</option>
-            <option value="6">ХУС</option>
-            <option value="7">ОУХНУС</option>
-          </select>
-        </div>
-        <div class="button"><select>
-            <option value="0" selected disabled hidden>Тэнхим</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">7</option>
-            <option value="6">8</option>
-            <option value="7">9</option>
-          </select></div>
-        <div class="button"><select>
-            <option value="0" selected disabled hidden>Хичээл</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-          </select></div>
-        <div class="button">
-          <button @click="search()" style="border: 0;background-color:#83b5de ; border-radius: 10px;" type="submit">
+          <input style=" height: 25px ; width: 220px;"placeholder=" Хичээлийн нэрийг оруулна уу.">
+          <button class="buttton" @click="search()" type="submit">
             <i class="fab fa-searchengin"></i> Хайх
           </button>
+        
+      </div>
+      <div class="about">
+        <div>Хичээлийн мэдээлэл</div>
+        <div >
+          <div class="info">
+            <div class="side-info">
+              <div class="name">Салбар Сургууль</div>
+              <div class="name">Тэнхим</div>
+              <div class="name">Заагдах улирал</div>
+              <div class="name">Түвшин</div>
+              <div class="name">Багц цаг</div>
+              <div class="name">Төлөвлөгөө</div>
+              </div>
+            <div class="side-info"><div>ХШУИС</div>
+            <div>МКУТ</div>
+            <div>Намрын улирал</div>
+            <div>Бакалавр</div>
+            <div>3 бц</div>
+            <div>2015</div></div>
+        </div>
         </div>
       </div>
       <div class="container2">
@@ -71,22 +60,37 @@
           <div>Багш нар <i style="color: #204261;"class="fas fa-chalkboard-teacher"></i></div>
         </div>
         <div class="cont3">
-          <div style="background-color: #b7d0f7;" class="list">
-            <ul>
-              <li v-if="isDun" v-for="d in dun">{{d.Үсгэн_дүн}}: {{d.Үсгэн_дүн_тоо}}</li>
-
-            </ul>
+          <div style="background-color: #bdbdbd;" class="list">
+            <div class="subtitle">
+              <div>Үсгэн дүн</div>
+              <div>Нийт хэмжээ</div>
+            </div>
+            <div class="wrap">
+            
+              <div class="data"v-if="isDun" v-for="d in dun">
+                <div>{{d.Үсгэн_дүн}} </div> 
+              <div>{{d.Үсгэн_дүн_тоо}} </div>
+              </div>
+            </div>
           </div>
-          <div class="list" style="background-color: #b7d0f7;">
-            <ul>
-              <li v-if="isLoad" v-for="b in bagsh">{{b.Багшийн_нэр}}: {{b.index.toFixed(2)}}</li>
-            </ul>
+          <div class="list" style="background-color: #bdbdbd;">
+            <div class="subtitle">
+              <div>Багшийн нэр</div>
+              <div>Эрэлт</div>
+            </div>
+            <div class="wrap">
+            
+              <div class="data" v-if="isLoad" v-for="b in bagsh">
+                <div>{{b.Багшийн_нэр}} </div>
+              <div> {{b.index.toFixed(2)}} </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer">Created By: Coursuggest<sup><i class="fab fa-connectdevelop"></i></sup> team</div>
+    <div class="footer">Created By: CourSuggest<sup><i class="fab fa-connectdevelop"></i></sup> team</div>
   </div>
+</div>
   <script src="./main.js"></script>
 
 </body>
