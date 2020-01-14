@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=El+Messiri|Fredoka+One|Lobster|Marmelad|Oranienbaum|Tenor+Sans&display=swap" rel="stylesheet">
+    <script src="../js/vueDoc.js"></script>
+    <script src="/chart.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>CourSuggest</title>
+</head>
+<body>
+<div class="main">
+
+ <div class="header">
+     <h1 style="font-size: 25px;font-family: 'Fredoka One', cursive;">CourSuggest<sup>
+         <i class="fab fa-connectdevelop"></i></sup></h1>
+     <p style="font-size: 13px;font-family: 'Lobster', cursive;">Хичээл сонголтын туслах</p>
+</div>
+ <div class="body">
+     
+    <div class="search">
+        <input placeholder="Хичээлийн нэрийг оруулна уу.">
+        <button type="submit" @click="search()">Хайх</button>
+    </div>
+    
+     <div class="info">
+         <div class="title inf0">
+             <div><b>Хичээлийн мэдээлэл:</b></div>
+             <div>Биеийн тамир</div>
+         </div>
+         <div class="text inf0">
+             <div class="side-info inff">
+                <div class="name">Салбар Сургууль</div>
+                <div class="name">Тэнхим</div>
+                <div class="name">Заагдах улирал</div>
+                <div class="name">Түвшин</div>
+                <div class="name">Багц цаг</div>
+                <div class="name">Төлөвлөгөө</div>
+             </div>
+             <div class="main-info inff">
+                <div class="name">ХШУИС</div>
+                <div class="name">МКУТ</div>
+                <div class="name">Намрын улирал</div>
+                <div class="name">Бакалавр</div>
+                <div class="name">3 бц</div>
+                <div class="name">2015</div>
+             </div>
+         </div>
+     </div>
+    
+     <div class="data">
+         <div class="result">
+             <div class="subtitle">Хичээлийн дүн <i style="color: #204261;" class="fas fa-chart-bar"></i></div>
+             <div class="wrap">
+                 <div class="data-result" v-if="isDun" v-for="d in dun"> 
+                    <div class="haha">{{d.Үсгэн_дүн}}     </div> 
+                    <div class="haha">{{d.Үсгэн_дүн_тоо}} </div>
+                 </div>
+             </div>
+         </div>
+         <div class="result">
+             <div class="subtitle">Багш нар <i style="color: #204261;"class="fas fa-chalkboard-teacher"></i></div>
+             <div class="wrap">
+                 <div class="data-result" v-if="isLoad" v-for="b in bagsh">
+                    <div class="haha"> {{b.Багшийн_нэр}}      </div>
+                    <div class="haha"> {{b.index.toFixed(2)}} </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <div class="footer">
+     Created By: <b> CourSuggest<sup><i class="fab fa-connectdevelop"></i></sup> team </b>
+    </div>
+
+</div>
+<script src="../js/main.js"></script>
+    
+</body>
+</html>
