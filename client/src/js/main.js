@@ -78,6 +78,7 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
+      //tsetse
       fetch(
         "http://data.num.edu.mn/dataset/b22cc3d9-412b-4919-a777-6aa954dc110b/resource/a40b1a18-be1d-49c2-9e6e-c18f887ca763/download/-2018-autumn.json",
         requestOptions
@@ -101,6 +102,33 @@ new Vue({
         .then(response => response.json())
         .then(result => {
           this.bagsh = result;
+        })
+        .catch(error => console.log("error", error));
+    }
+  }
+});
+// tsetse-iin bicsen heseg ehelj bn hihi
+new Vue({
+  el: ".search",
+  data: {
+    hicheel: [],
+    myData: []
+  },
+  methods: {
+    getData() {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch(
+        "http://data.num.edu.mn/dataset/d522ffe5-e540-4ddd-b02f-4eb8ce70243d/resource/ed9ef2cd-5283-4ca0-95a2-4483c7017371/download/-2017-autumn.json",
+        requestOptions
+      )
+        .then(response => response.json())
+        .then(result => {
+          console.log("fetched myData");
+          this.myData = result;
+          console.log(this.myData);
         })
         .catch(error => console.log("error", error));
     }
