@@ -1,0 +1,29 @@
+{
+  "name": "umanage",
+  "version": "1.0.0",
+  "description": "online manager for students of universities",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon ./server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Delgerskhn/CourSugest.git"
+  },
+  "author": "Delgerskhn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Delgerskhn/CourSugest/issues"
+  },
+  "homepage": "https://github.com/Delgerskhn/CourSugest#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
