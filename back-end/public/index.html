@@ -42,6 +42,7 @@
           </button>
         </span>
       </div>
+      <div class="option-container">
       <option
         class="option"
         v-if="search.length!=0"
@@ -49,6 +50,7 @@
         v-text="i.Name"
         @click="getObj(i)"
       ></option>
+      </div>
       <div class="info body-item">
         <div class="title"><h4>Хичээлийн мэдээлэл</h4></div>
         <div class="body-info">
