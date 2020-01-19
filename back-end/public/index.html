@@ -9,8 +9,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>UManage</title>
     <script src="vueDoc.js"></script>
+    <title>UManage</title>
   </head>
   <body>
     <div class="header">
@@ -24,15 +24,29 @@
         </div>
       </div>
     </div>
-    <div class="body fit">
+    <div class="body fit" id="con">
       <div class="type body-item">
         <input
+          v-model="search"
+          id="search"
           type="text"
           class="search"
           placeholder="Хичээлийн нэрийг оруулна уу..."
         />
-        <span><button type="submit" @click="search()">sda</button></span>
+        <span
+          ><button type="submit" @click="getId(myObj) , getObInfo()">
+            sda
+          </button></span
+        >
       </div>
+      <option
+        class="option"
+        v-if="search.length!=0"
+        v-for="i in filteredClass"
+        v-text="i.name"
+        @click="getValue(i.name)"
+        @click="getObj(i)"
+      ></option>
       <div class="info body-item">
         <div class="title"><h4>Хичээлийн мэдээлэл</h4></div>
         <div class="body-info">
@@ -63,10 +77,10 @@
       <div class="data body-item">
         <div class="data-box">
           <div class="data-title">Хичээлийн дүн</div>
-          <div class="data-result" v-if="isDun" v-for="d in dun">
+          <!-- <div class="data-result" v-if="isDun" v-for="d in dun">
             <div class="data-result--">{{d.Үсгэн_дүн}}</div>
             <div class="data-result--">{{d.Үсгэн_дүн_тоо}}</div>
-          </div>
+          </div> -->
         </div>
         <div class="data-box">
           <div class="data-title">Багш нарын индекс</div>
@@ -90,12 +104,13 @@
       </div>
       <span class="hr"><hr /></span>
     </div>
+    <script src="main.js"></script>
+
     <script>
       function func() {
         window.scrollTo(0, 550);
         time;
       }
     </script>
-    <script src="main.js"></script>
   </body>
 </html>
