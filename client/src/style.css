@@ -89,12 +89,16 @@
         th,td{
             border: 1px solid #eee;
         }
+        hr{
+            width: 100%;
+            color: white;
+        }
         @media only screen and (min-width:769px) {
             .data{
                 flex-direction: row;
                 text-align: center;
             }
-            .footer-container{
+            .footer-top{
                 flex-direction: row;
             }
             .fit{
@@ -104,14 +108,12 @@
                 height: 190px;
                 width: auto;
                 padding-bottom: 20px;
-                border-bottom: 1px solid rgb(245, 245, 245,0.5);
             }
             .hr{
                display: none;
             }
             .last{
                 margin-bottom: 23px;
-                border-bottom: 1px solid whitesmoke
             }
         }
         @media only screen and (max-width:768px) {
@@ -126,8 +128,9 @@
                 padding: 0 2%;
             }
             .footer-script{
-                height: 30%;
-                width: auto;
+                height: auto;
+                width: 70%;
+                margin: 0 5%;
                  padding: 0 12%;
             }
             .hr{
@@ -135,7 +138,7 @@
             }
         
         }
-        .data-result--{
+        .data-result{
             flex-direction: row;
         }
         .md{
