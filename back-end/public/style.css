@@ -4,6 +4,10 @@
             padding: 0;
             font-family: 'Open Sans';
             scroll-behavior: smooth;
+            -webkit-transition: 2s;
+            -o-transition: 2s;
+
+
         }
         :root{
             --head: #1b4588;
@@ -111,19 +115,25 @@
         .body-item .additional{
             margin: 0 20px;
             margin-bottom: 20px;
-            
         }
-        .big {
-            width: 70% !important;
+        .body-info .loader {
+            display: none;
+        }
+        .loading {
+            height: 197px;
+        }
+        .loading .big {
             height: 20px !important;
         }
-        .loadings {
+        .loading .loadings {
             border-radius: 3px;
-            width: 50%;
             height: 12px;
             margin: 10px;
             animation: pulse 1s infinite ease-in-out;
             -webkit-animation: pulse 1s infinite ease-in-out;
+        }
+        .loading h3, .loading .additional {
+            display: none;
         }
         .type{
             margin-top: 5%;
