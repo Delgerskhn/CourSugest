@@ -14,6 +14,14 @@
             flex-direction: column;
             flex: 1 1 auto;
         }
+        input::after{
+            border-bottom: none;
+        }
+        .option-container{
+            margin-right: 10%;
+            overflow-y: scroll;
+            max-height: 200px;
+        }
         .zar-header {
             display: flex;
             height: 24px;
@@ -115,7 +123,6 @@
         .footer-container {
             min-height: 250px;
             background-color: var(--head);
-            text-align: center;
             padding-top:4% ;
             padding-bottom:4% ;
             color: whitesmoke;
@@ -147,6 +154,7 @@
             .data{
                 flex-direction: row;
                 text-align: center;
+                margin-bottom: 5%;
             }
             .footer-container{
                 flex-direction: row;
@@ -167,6 +175,7 @@
             .data{
                 flex-direction: column;
                 text-align: center;
+                margin-bottom: 5%;
             }
             .footer-container{
                 flex-direction: column;
@@ -181,6 +190,9 @@
                  padding: 0 12%;
             }
             
+        }
+        .footer-item{
+            padding-left: 10%;
         }
         .data-result{
             flex-direction: row;
