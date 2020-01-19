@@ -105,15 +105,21 @@
         }
         button{
             height: 50px;
-            width: 50px;
             border-radius: 0 5px 5px 0;
             border: 1px solid #eee;
             background-color: white;
+        }
+        .search-but {
+            flex: 1;
+            background: var(--head);
+            color: white;
+            height: 48px;
         }
         a{
             text-decoration: none;
             color: whitesmoke;
         }
+        
         .footer-container {
             min-height: 250px;
             background-color: var(--head);
@@ -126,8 +132,6 @@
             border-radius: 5px 0 0 5px;
             height: 46px;
             width: 90%;
-        }
-        ::placeholder{
             padding: 0 20px;
         }
         img{

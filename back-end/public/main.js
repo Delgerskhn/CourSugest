@@ -8,7 +8,7 @@ new Vue({
     myData: [],
     myObj: {}
   },
-  created: function () {
+  created: function() {
     this.getData();
   },
   methods: {
@@ -28,6 +28,9 @@ new Vue({
     getValue(i) {
       this.val = i.Name;
       document.getElementsByClassName("option")[0].style.display = "none";
+      // document.getElementsByClassName("option-container")[0].style.display =
+      // "none";
+      filteredClass = [];
     },
     getObj(i) {
       console.log(i);
@@ -51,9 +54,9 @@ new Vue({
     }
   },
   computed: {
-    filteredClass: function () {
+    filteredClass: function() {
       return this.myData.filter(i => {
-        return i.Name.includes(this.search);
+        return i.Name.includes(this.search); // toLowerCase()
       });
     }
   }
