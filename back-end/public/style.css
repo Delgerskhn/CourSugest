@@ -48,6 +48,25 @@
         .body-item{
             min-height: 80px;
         }
+        .info.body-item {
+            margin-bottom: 20px;
+        }
+        .class-info {
+            border: 1px solid rgb(185, 185, 185);
+            border-radius: 4px;
+        }
+        .body-item p{
+            margin:0;
+            color: #535353
+        }
+        .body-item h3{
+            margin: 20px;
+        }
+            .body-item .additional{
+            margin: 0 20px;
+            margin-bottom: 20px;
+            
+        }
         .type{
             margin-top: 5%;
             flex-direction: row;
