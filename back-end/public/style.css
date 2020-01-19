@@ -141,6 +141,13 @@
             background: var(--head);
             color: white;
             height: 48px;
+            cursor: pointer;
+        }
+        .search-but:hover {
+            background-color: #1b50a4;
+        }
+        .search-but:active{
+            transform: scale(1.1);
         }
         a{
             text-decoration: none;
