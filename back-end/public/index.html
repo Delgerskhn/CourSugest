@@ -29,6 +29,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     <div class="body fit" id="con">
       <div class="type body-item">
         <input
@@ -42,6 +43,21 @@
         <button type="submit" @click=" getObInfo()" style="flex: 1">
           search
         </button>
+=======
+  </div>
+  <div class="body fit" id="con">
+    <div class="type body-item">
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
+      <button type="submit" @click=" getObInfo()" style="flex: 1">
+        search
+      </button>
+    </div>
+    <option class="option" v-if="search.length!=0" v-for="i in filteredClass" v-text="i.Name" @click="getObj(i)">
+    </option>
+    <div class="info body-item">
+      <div class="title">
+        <h2 class="zar-header">Хичээлийн мэдээлэл</h2>
+>>>>>>> 0ba9ef57f0239566d1c0d6ddfc1fcd06e6722dfb
       </div>
       <option
         class="option"
@@ -55,6 +71,7 @@
         <div class="title">
           <h2>Хичээлийн мэдээлэл</h2>
         </div>
+<<<<<<< HEAD
         <div class="body-info class-info">
           <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}</h3>
           <div class="additional">
@@ -109,6 +126,23 @@
             <div class="data-result--"></div>
             <div class="data-result--"></div>
           </div>
+=======
+      </div>
+    </div>
+    <div class="data body-item">
+      <div class="data-box" style="margin-right: 30px;">
+        <h2 class="data-title zar-header">Хичээлийн дүн</h2>
+        <div class="data-result class-info">
+          <div class="data-result--"></div>
+          <div class="data-result--"></div>
+        </div>
+      </div>
+      <div class="data-box">
+        <h2 class="data-title zar-header">Багш нарын индекс</h2>
+        <div class="data-result class-info">
+          <div class="data-result--"></div>
+          <div class="data-result--"></div>
+>>>>>>> 0ba9ef57f0239566d1c0d6ddfc1fcd06e6722dfb
         </div>
       </div>
     </div>
