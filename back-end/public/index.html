@@ -33,8 +33,8 @@
       </button>
     </div>
     <div class="option-container" v-if="search.length!= 0">
-      <option class="option" v-for="i in filteredClass" v-text="i.Name" @click="getObj(i)">
-      </option>
+      <div class="option" v-for="i in filteredClass" v-text="i.Name" @click="getObj(i)">
+      </div>
     </div>
     <div class="info body-item">
       <div class="info body-item">
