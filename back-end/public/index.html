@@ -32,27 +32,25 @@
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
-      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @click = "search= ''" />
       <button type="submit" @click=" getObInfo()" class="search-but">
         ХАЙХ
       </button>
     </div>
-    <div class="option-container">
-    <option class="option" v-if="search.length!=0" v-for="i in filteredClass" v-text="i.Name" @click="getObj(i)">
+    <div class="option-container" v-if ="search.length!= 0">
+      <option
+      class="option"
+      v-for="i in filteredClass"
+      v-text="i.Name"
+      @click="getObj(i)"
+    >
     </option>
     </div>
     <div class="info body-item">
       <div class="title">
         <h2 class="zar-header">Хичээлийн мэдээлэл</h2>
       </div>
-      <option
-        class="option"
-        v-if="search.length!=0"
-        v-for="i in filteredClass"
-        v-text="i.Name"
-        @click="getObj(i)"
-      >
-      </option>
+    
       <div class="info body-item">
         <div class="title">
           <h2>Хичээлийн мэдээлэл</h2>
