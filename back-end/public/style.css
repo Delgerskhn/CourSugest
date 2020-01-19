@@ -119,8 +119,6 @@
             border-radius: 5px 0 0 5px;
             height: 46px;
             width: 90%;
-        }
-        ::placeholder{
             padding: 0 20px;
         }
         img{
