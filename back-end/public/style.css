@@ -94,7 +94,7 @@
         .body-item h3{
             margin: 20px;
         }
-            .body-item .additional{
+        .body-item .additional{
             margin: 0 20px;
             margin-bottom: 20px;
             
@@ -166,6 +166,7 @@
                 height: 190px;
                 width: auto;
                 padding-bottom: 20px;
+                padding-top: 10%;
             }
             .last{
                 margin-bottom: 23px;
