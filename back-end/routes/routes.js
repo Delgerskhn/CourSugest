@@ -5,9 +5,9 @@ let appRouter = function(app) {
     res.render("index.html");
   });
   app.get("/api/getClasses", (req, res) => {
-    fs.readFile(__dirname + "/hicheel.json", (err, data) => {
+    fs.readFile(__dirname + "/classes.json", (err, data) => {
       if (err) throw err;
-      res.send(filterClassName(data));
+      res.send(data);
     });
   });
   app.get("/classinfo/:id", (req, res) => {
@@ -19,16 +19,9 @@ let appRouter = function(app) {
   });
 };
 
-let filterClassName = data => {
-  data = JSON.parse(data);
-  return data.map(function(x) {
-    return { Name: x.Монгол_нэр, clasId: x.Хичээлийн_дугаар };
-  });
-};
-
 let filterClass = (data, clasId) => {
   data = JSON.parse(data);
-  return data.filter(x => x.Хичээлийн_дугаар === clasId);
+  return data.filter(x => x.ID === clasId);
 };
 
 module.exports = appRouter;
