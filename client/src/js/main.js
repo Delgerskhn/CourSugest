@@ -1,4 +1,4 @@
-new Vue({
+/* new Vue({
   el: ".main",
   data: {
     msg: "message",
@@ -9,7 +9,7 @@ new Vue({
     dun: [],
     bagsh: [],
     isLoad: false,
-    isDun: false,
+    isDun: false
   },
   created() {
     // this.getClass();
@@ -18,13 +18,9 @@ new Vue({
     this.getDun();
   },
   computed: {
-    getBagsh() {
-
-    }
+    getBagsh() {}
   },
-  watch: {
-
-  },
+  watch: {},
   methods: {
     search() {
       this.teacherIndex();
@@ -49,9 +45,18 @@ new Vue({
     produceMarks(tenhim, hicheel) {
       //dungee bolovsruulah heseg
       //songogdson hicheeliin dung return hiine
-      let filter = this.dun.filter(data => data.Хичээлийн_харьялах_нэгж === this.tenhim && data.Хичээлийн_нэр === this.hicheel);
+      let filter = this.dun.filter(
+        data =>
+          data.Хичээлийн_харьялах_нэгж === this.tenhim &&
+          data.Хичээлийн_нэр === this.hicheel
+      );
       this.dun = filter;
       this.isDun = true;
+    },
+    tenhim(surguuli) {
+      let tenhimuud = [];
+
+      return tenhimuud;
     },
     teacherIndex(hicheel) {
       //tuhain hichel derh bagsh nariin sanaliin indexiig return hiine
@@ -73,12 +78,16 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
+      //tsetse
       fetch(
         "http://data.num.edu.mn/dataset/b22cc3d9-412b-4919-a777-6aa954dc110b/resource/a40b1a18-be1d-49c2-9e6e-c18f887ca763/download/-2018-autumn.json",
         requestOptions
       )
         .then(response => response.json())
-        .then(result => { console.log('fetched dun'); this.dun = result })
+        .then(result => {
+          console.log("fetched dun");
+          this.dun = result;
+        })
         .catch(error => console.log("error", error));
     },
     getBagsh() {
@@ -95,6 +104,42 @@ new Vue({
           this.bagsh = result;
         })
         .catch(error => console.log("error", error));
+    }
+  }
+}); */
+// tsetse-iin bicsen heseg ehelj bn hihi endees shineer
+new Vue({
+  el: ".search",
+  data: {
+    search: "",
+    myLessons: [],
+    myData: []
+  },
+  methods: {
+    getData() {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch("http://192.168.1.21:8080/api/getClasses", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log("fetched myData");
+          this.myData = result;
+          console.log(result);
+        })
+        .catch(error => console.log("error", error));
+    },
+
+    getValue() {}
+  },
+  computed: {
+    // search hesegt haruulahdaa i.name gej haruulna shuu huurhnuu
+
+    filteredClass: function() {
+      return this.myData.filter(i => {
+        return i.name.match(this.search);
+      });
     }
   }
 });
