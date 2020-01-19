@@ -6,7 +6,8 @@ new Vue({
     val: "",
     search: "",
     myData: [],
-    myObj: {}
+    myObj: {},
+    loaderClass: 'loading'
   },
   created: function () {
     this.getData();
@@ -21,6 +22,7 @@ new Vue({
         .then(response => response.json())
         .then(result => {
           this.myData = result;
+          this.loaderClass = 'body-info';
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));

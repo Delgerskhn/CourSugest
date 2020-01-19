@@ -1,129 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <script src="vueDoc.js"></script>
-    <title>UManage</title>
-  </head>
 
-  <body>
-    <div class="header">
-      <div class="head fit h1">
-        <div class="logo">
-          <img src="82754505_469405780617299_635147322874920960_n.png" alt="" />
-          <h1>UManage</h1>
-        </div>
-        <div onclick="func()" class="buttons">
-          <i class="far fa-address-card"> About Us</i>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="vueDoc.js"></script>
+  <title>UManage</title>
+</head>
+
+<body>
+  <div class="header">
+    <div class="head fit h1">
+      <div class="logo">
+        <img src="82754505_469405780617299_635147322874920960_n.png" alt="" />
+        <h1>UManage</h1>
+      </div>
+      <div onclick="func()" class="buttons">
+        <i class="far fa-address-card"> About Us</i>
       </div>
     </div>
-    <div class="body fit" id="con">
-      <div class="type body-item">
-        <input
-          v-model="search"
-          id="search"
-          type="text"
-          class="search"
-          placeholder="Хичээлийн нэрийг оруулна уу..."
-        />
-        <button type="submit" @click=" getObInfo()" class="search-but">
-          ХАЙХ
-        </button>
+  </div>
+  <div class="body fit" id="con">
+    <div class="type body-item">
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
+      <button type="submit" @click=" getObInfo()" class="search-but">
+        ХАЙХ
+      </button>
+    </div>
+    <div class="option-container" v-if="search.length!= 0">
+      <div class="option" v-for="i in filteredClass" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
+        {{i.Name}}({{i.clasID}})
       </div>
-      <div class="option-container" v-if="search.length!= 0">
-        <div
-          class="option"
-          v-for="i in filteredClass"
-          v-text="i.Name +'('+i.clasId+')' "
-          @click="getObj(i)"
-        >
-          {{i.Name}}({{i.clasID}})
-        </div>
-      </div>
+    </div>
+    <div class="info body-item">
       <div class="info body-item">
-        <div class="info body-item">
-          <div class="title ">
-            <h2 class="zar-header">Хичээлийн мэдээлэл</h2>
-          </div>
-          <div class="body-info class-info">
-            <div class="loading">
-              <div class="loadings big"></div>
-              <div class="loadings"></div>
-              <div class="loadings"></div>
-              <div class="loadings"></div>
-            </div>
-            <!-- <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}</h3>
-            <div class="additional">
-              <p class="butets">Салбар сургууль: {{obinfo.Бүтэц}}</p>
-              <p class="tenhim">Тэнхим: {{obinfo.Тэнхим}}</p>
-              <p class="tuvshin">Түвшин: {{obinfo.Түвшин}}</p>
-              <p class="uliral">Улирал: {{obinfo.Season}}</p>
-              <p class="bagts">Багц цаг: {{obinfo.Багц}}</p>
-            </div> -->
-          </div>
+        <div class="title ">
+          <h2 class="zar-header">Хичээлийн мэдээлэл</h2>
         </div>
-        <div class="data body-item">
-          <div class="data-box" style="margin-right: 30px;">
-            <h2 class="data-title zar-header">Хичээлийн дүн</h2>
-            <div class="data-result class-info">
-              <div class="data-result-loading"></div>
-              <div class="data-result-loading"></div>
-            </div>
+        <div class="class-info " :class="loaderClass">
+          <div class="loader">
+            <div class="loadings big"></div>
+            <div class="loadings"></div>
+            <div class="loadings"></div>
+            <div class="loadings"></div>
           </div>
-          <div class="data-box">
-            <h2 class="data-title zar-header">Багш нарын индекс</h2>
-            <div class="data-result class-info">
-              <div class="data-result-loading"></div>
-              <div class="data-result-loading"></div>
-            </div>
+          <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}</h3>
+          <div class="additional">
+            <p class="butets">Салбар сургууль: {{obinfo.Бүтэц}}</p>
+            <p class="tenhim">Тэнхим: {{obinfo.Тэнхим}}</p>
+            <p class="tuvshin">Түвшин: {{obinfo.Түвшин}}</p>
+            <p class="uliral">Улирал: {{obinfo.Season}}</p>
+            <p class="bagts">Багц цаг: {{obinfo.Багц}}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-container fit ">
-      <img
-        class="footer-script "
-        src="http://data.num.edu.mn/num_mgl-white.png"
-      />
-      <div class="footer-item ">
-        <div class="footer-title">
-          <h4>Бидний тухай</h4>
+    <div class="data body-item">
+      <div class="data-box" style="margin-right: 30px;">
+        <h2 class="data-title zar-header">Хичээлийн дүн</h2>
+        <div class="data-result class-info">
+          <div class="data-result-loading"></div>
+          <div class="data-result-loading"></div>
         </div>
-        <div class="mh">
-          <b>Зорилго: </b> UManage-ийн зорилго нь МУИС-ийн нээлттэй эхийн
-          өгөгдлийг ашиглан оюутнуудад өөрт тохирсон зөв хичээлийг сонгоход
-          туслахад оршино.
-        </div>
-        <div class="md">
-          <i class="fas fa-phone-alt"> Утас: (976)-99999999</i>
-        </div>
-        <div class="md last">
-          <i class="fas fa-globe-asia"> Вэб хуудас:</i
-          ><a href="">Haha@haha.com</a>
-          <hr />
-          Created by: UManage team
+      </div>
+      <div class="data-box">
+        <h2 class="data-title zar-header">Багш нарын индекс</h2>
+        <div class="data-result class-info">
+          <div class="data-result-loading"></div>
+          <div class="data-result-loading"></div>
         </div>
       </div>
     </div>
-    <script src="main.js"></script>
+  </div>
+  </div>
+  <div class="footer-container fit ">
+    <img class="footer-script " src="http://data.num.edu.mn/num_mgl-white.png" />
+    <div class="footer-item ">
+      <div class="footer-title">
+        <h4>Бидний тухай</h4>
+      </div>
+      <div class="mh">
+        <b>Зорилго: </b> UManage-ийн зорилго нь МУИС-ийн нээлттэй эхийн
+        өгөгдлийг ашиглан оюутнуудад өөрт тохирсон зөв хичээлийг сонгоход
+        туслахад оршино.
+      </div>
+      <div class="md">
+        <i class="fas fa-phone-alt"> Утас: (976)-99999999</i>
+      </div>
+      <div class="md last">
+        <i class="fas fa-globe-asia"> Вэб хуудас:</i><a href="">Haha@haha.com</a>
+        <hr />
+        Created by: UManage team
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
 
-    <script>
-      function func() {
-        window.scrollTo(0, 10000);
-        time;
-      }
-    </script>
-  </body>
+  <script>
+    function func() {
+      window.scrollTo(0, 10000);
+      time;
+    }
+  </script>
+</body>
+
 </html>
