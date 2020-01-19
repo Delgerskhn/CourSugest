@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>UManage</title>
+    <script src="vueDoc.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="head fit h1">
+        <div class="logo">
+          <img src="82754505_469405780617299_635147322874920960_n.png" alt="" />
+          <h1>UManage</h1>
+        </div>
+        <div onclick="func()" class="buttons">
+          About Us
+        </div>
+      </div>
+    </div>
+    <div class="body fit">
+      <div class="type body-item">
+        <input
+          type="text"
+          class="search"
+          placeholder="Хичээлийн нэрийг оруулна уу..."
+        />
+        <span><button type="submit" @click="search()">sda</button></span>
+      </div>
+      <div class="info body-item">
+        <div class="title"><h4>Хичээлийн мэдээлэл</h4></div>
+        <div class="body-info">
+          <table>
+            <tr>
+              <th>Хичээлийн нэр:</th>
+              <th>Биеийн тамир</th>
+            </tr>
+            <tr>
+              <th>asdsad</th>
+              <td>aasda</td>
+            </tr>
+            <tr>
+              <th>asdsad</th>
+              <td>aasda</td>
+            </tr>
+            <tr>
+              <th>asdsad</th>
+              <td>aasda</td>
+            </tr>
+            <tr>
+              <th>asdsad</th>
+              <td>aasda</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="data body-item">
+        <div class="data-box">
+          <div class="data-title">Хичээлийн дүн</div>
+          <div class="data-result" v-if="isDun" v-for="d in dun">
+            <div class="data-result--">{{d.Үсгэн_дүн}}</div>
+            <div class="data-result--">{{d.Үсгэн_дүн_тоо}}</div>
+          </div>
+        </div>
+        <div class="data-box">
+          <div class="data-title">Багш нарын индекс</div>
+          <div class="data-result">sadad</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-container fit ">
+      <img
+        class="footer-script "
+        src="http://data.num.edu.mn/num_mgl-white.png"
+      />
+      <div class="footer-item ">
+        <div class="footer-title"><h4>Бидний тухай</h4></div>
+        <div class="mh">
+          <b>Зорилго: </b>ahdaodhkshdkdakdj<br />
+          kaskdkllajdakljkldashdkjadh analkn alnsclan anscakj
+        </div>
+        <div class="md">Утас: (976)-99999999</div>
+        <div class="md last">Вэб хуудас: Haha@haha.com</div>
+      </div>
+      <span class="hr"><hr /></span>
+    </div>
+    <script>
+      function func() {
+        window.scrollTo(0, 550);
+        time;
+      }
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
