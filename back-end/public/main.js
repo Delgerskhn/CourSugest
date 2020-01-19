@@ -8,7 +8,7 @@ new Vue({
     myData: [],
     myObj: {}
   },
-  created: function() {
+  created: function () {
     this.getData();
   },
   methods: {
@@ -20,7 +20,7 @@ new Vue({
       fetch("http://localhost:8080/api/getClasses", requestOptions)
         .then(response => response.json())
         .then(result => {
-          this.myData = JSON.parse(result);
+          this.myData = result;
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
@@ -51,7 +51,7 @@ new Vue({
     }
   },
   computed: {
-    filteredClass: function() {
+    filteredClass: function () {
       return this.myData.filter(i => {
         return i.Name.includes(this.search);
       });
