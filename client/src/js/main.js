@@ -1,4 +1,4 @@
-new Vue({
+/* new Vue({
   el: ".main",
   data: {
     msg: "message",
@@ -109,12 +109,13 @@ new Vue({
         .catch(error => console.log("error", error));
     }
   }
-});
-// tsetse-iin bicsen heseg ehelj bn hihi
+}); */
+// tsetse-iin bicsen heseg ehelj bn hihi endees shineer
 new Vue({
   el: ".search",
   data: {
-    hicheel: [],
+    search: "",
+    myLessons: [],
     myData: []
   },
   methods: {
@@ -123,17 +124,25 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      fetch(
-        "http://data.num.edu.mn/dataset/d522ffe5-e540-4ddd-b02f-4eb8ce70243d/resource/ed9ef2cd-5283-4ca0-95a2-4483c7017371/download/-2017-autumn.json",
-        requestOptions
-      )
+      fetch("http://192.168.1.21:8080/api/getClasses", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log("fetched myData");
           this.myData = result;
-          console.log(this.myData);
+          console.log(result);
         })
         .catch(error => console.log("error", error));
+    },
+
+    getValue() {}
+  },
+  computed: {
+    // search hesegt haruulahdaa i.name gej haruulna shuu huurhnuu
+
+    filteredClass: function() {
+      return this.myData.filter(i => {
+        return i.name.match(this.search);
+      });
     }
   }
 });
