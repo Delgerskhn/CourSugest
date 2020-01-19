@@ -51,6 +51,7 @@ new Vue({
           this.obinfo = result[0];
         })
         .catch(error => console.log("error", error));
+      this.search = "";
     }
   },
   computed: {
