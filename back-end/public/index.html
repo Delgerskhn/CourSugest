@@ -36,6 +36,7 @@
           type="text"
           class="search"
           placeholder="Хичээлийн нэрийг оруулна уу..."
+          @click="search = ''"
         />
         <span
           ><button type="submit" @click=" getObInfo()">
@@ -56,27 +57,27 @@
           <table>
             <tr>
               <th>Хичээлийн нэр:</th>
-              <th v-text=" obinfo.name"></th>
+              <th v-text=" obinfo.Name"></th>
             </tr>
             <tr>
               <th>Салбар сургууль</th>
-              <td>aasda</td>
+              <td v-text="obinfo.Бүтэц">aasda</td>
             </tr>
             <tr>
               <th>Тэнхим</th>
-              <td>aasda</td>
+              <td v-text="obinfo.Тэнхим">aasda</td>
             </tr>
             <tr>
               <th>Түвшин</th>
-              <td>aasda</td>
+              <td v-text="obinfo.Түвшин">aasda</td>
             </tr>
             <tr>
               <th>Багц цаг</th>
-              <td>aasda</td>
+              <td v-text="obinfo.Багц">aasda</td>
             </tr>
             <tr>
               <th>Улирал</th>
-              <td></td>
+              <td v-text="obinfo.Season"></td>
             </tr>
           </table>
         </div>
