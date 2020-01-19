@@ -85,7 +85,6 @@
         .footer-container {
             min-height: 250px;
             background-color: var(--head);
-            text-align: center;
             padding-top:4% ;
             padding-bottom:4% ;
             color: whitesmoke;
@@ -153,6 +152,9 @@
                  padding: 0 12%;
             }
             
+        }
+        .footer-item{
+            padding-left: 10%;
         }
         .data-result{
             flex-direction: row;

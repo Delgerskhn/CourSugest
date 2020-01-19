@@ -31,8 +31,10 @@
         search
       </button>
     </div>
+    <div class="option-container">
     <option class="option" v-if="search.length!=0" v-for="i in filteredClass" v-text="i.Name" @click="getObj(i)">
     </option>
+    </div>
     <div class="info body-item">
       <div class="title">
         <h2>Хичээлийн мэдээлэл</h2>
