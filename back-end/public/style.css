@@ -35,6 +35,9 @@
             text-align: center;
             line-height: 91px;
         }
+        i{
+            margin-top: 36px;
+        }
         .buttons:hover{
             background-color: var(--login);
             cursor: pointer;
@@ -89,6 +92,10 @@
         th,td{
             border: 1px solid #eee;
         }
+        hr{
+            width: 100%;
+            color: white;
+        }
         @media only screen and (min-width:769px) {
             .data{
                 flex-direction: row;
@@ -104,14 +111,9 @@
                 height: 190px;
                 width: auto;
                 padding-bottom: 20px;
-                border-bottom: 1px solid rgb(245, 245, 245,0.5);
-            }
-            .hr{
-               display: none;
             }
             .last{
                 margin-bottom: 23px;
-                border-bottom: 1px solid whitesmoke
             }
         }
         @media only screen and (max-width:768px) {
@@ -126,19 +128,20 @@
                 padding: 0 2%;
             }
             .footer-script{
-                height: 30%;
-                width: auto;
+                height: auto;
+                width: 50%;
+                margin:8% 12%;
                  padding: 0 12%;
             }
-            .hr{
-                flex-direction: column;
-            }
-        
+            
         }
-        .data-result--{
+        .data-result{
             flex-direction: row;
         }
         .md{
             opacity: 0.5;
+        }
+        a:hover{
+            text-decoration: underline;
         }
         

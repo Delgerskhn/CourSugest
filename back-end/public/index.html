@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+          rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
       rel="stylesheet"
@@ -20,7 +22,7 @@
           <h1>UManage</h1>
         </div>
         <div onclick="func()" class="buttons">
-          About Us
+          <i class="far fa-address-card">  About Us</i>  
         </div>
       </div>
     </div>
@@ -34,17 +36,16 @@
           placeholder="Хичээлийн нэрийг оруулна уу..."
         />
         <span
-          ><button type="submit" @click="getId(myObj) , getObInfo()">
-            sda
-          </button></span
-        >
+          ><button type="submit" @click=" getObInfo()">
+            search
+          </button>
+        </span>
       </div>
       <option
         class="option"
         v-if="search.length!=0"
         v-for="i in filteredClass"
-        v-text="i.name"
-        @click="getValue(i.name)"
+        v-text="i.Name"
         @click="getObj(i)"
       ></option>
       <div class="info body-item">
@@ -77,14 +78,17 @@
       <div class="data body-item">
         <div class="data-box">
           <div class="data-title">Хичээлийн дүн</div>
-          <!-- <div class="data-result" v-if="isDun" v-for="d in dun">
+           <div class="data-result" v-if="isDun" v-for="d in dun">
             <div class="data-result--">{{d.Үсгэн_дүн}}</div>
             <div class="data-result--">{{d.Үсгэн_дүн_тоо}}</div>
-          </div> -->
+          </div> 
         </div>
         <div class="data-box">
           <div class="data-title">Багш нарын индекс</div>
-          <div class="data-result">sadad</div>
+          <div class="data-result" v-if="" v-for="b in bagsh">
+            <div class="data-result--">{{}}</div>
+            <div class="data-result--">{{}}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -96,13 +100,12 @@
       <div class="footer-item ">
         <div class="footer-title"><h4>Бидний тухай</h4></div>
         <div class="mh">
-          <b>Зорилго: </b>ahdaodhkshdkdakdj<br />
-          kaskdkllajdakljkldashdkjadh analkn alnsclan anscakj
+          <b>Зорилго: </b> UManage-ийн зорилго нь МУИС-ийн нээлттэй эхийн өгөгдлийг ашиглан оюутнуудад өөрт тохирсон
+                           зөв хичээлийг сонгоход туслахад оршино.
         </div>
-        <div class="md">Утас: (976)-99999999</div>
-        <div class="md last">Вэб хуудас: Haha@haha.com</div>
+        <div class="md"><i class="fas fa-phone-alt">  Утас: (976)-99999999</i></div>
+        <div class="md last"><i class="fas fa-globe-asia">  Вэб хуудас:</i><a href="">Haha@haha.com</a><hr>Created by: UManage team</div>
       </div>
-      <span class="hr"><hr /></span>
     </div>
     <script src="main.js"></script>
 
