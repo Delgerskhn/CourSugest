@@ -35,6 +35,9 @@
             text-align: center;
             line-height: 91px;
         }
+        i{
+            margin-top: 36px;
+        }
         .buttons:hover{
             background-color: var(--login);
             cursor: pointer;
@@ -98,7 +101,7 @@
                 flex-direction: row;
                 text-align: center;
             }
-            .footer-top{
+            .footer-container{
                 flex-direction: row;
             }
             .fit{
@@ -108,9 +111,6 @@
                 height: 190px;
                 width: auto;
                 padding-bottom: 20px;
-            }
-            .hr{
-               display: none;
             }
             .last{
                 margin-bottom: 23px;
@@ -129,19 +129,19 @@
             }
             .footer-script{
                 height: auto;
-                width: 70%;
-                margin: 0 5%;
+                width: 50%;
+                margin:8% 12%;
                  padding: 0 12%;
             }
-            .hr{
-                flex-direction: column;
-            }
-        
+            
         }
         .data-result{
             flex-direction: row;
         }
         .md{
             opacity: 0.5;
+        }
+        a:hover{
+            text-decoration: underline;
         }
         
