@@ -20,7 +20,7 @@ new Vue({
       fetch("http://localhost:8080/api/getClasses", requestOptions)
         .then(response => response.json())
         .then(result => {
-          this.myData = JSON.parse(result);
+          this.myData = result;
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
