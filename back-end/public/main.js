@@ -12,7 +12,7 @@
     isDun: false
   },
   created() {
-    this.getClass();
+    // this.getClass();
     // getDun();
     this.getBagsh();
     this.getDun();
@@ -38,10 +38,7 @@
         requestOptions
       )
         .then(response => response.json())
-        .then(result => {
-          console.log("fetched class");
-          this.class = result;
-        })
+        .then(result => console.log(result))
         .catch(error => console.log("error", error));
       console.log("getclass");
     },
@@ -155,44 +152,34 @@ new Vue({
     myData: [],
     myObj: {}
   },
+  created: function() {
+    console.log("creat");
+    this.getData();
+  },
   methods: {
     getData() {
-      this.myData = [
-        {
-          name: "tse",
-          id: "122"
-        },
-        {
-          name: "hha",
-          id: "555"
-        },
-        {
-          name: "hho",
-          id: "666"
-        }
-      ];
-      // var requestOptions = {
-      //   method: "GET",
-      //   redirect: "follow"
-      // };
-      // fetch("http://192.168.1.26:8080/api/getClasses", requestOptions)
-      //   .then(response => response.json())
-      //   .then(result => {
-      //     console.log("fetched myData");
-      //     this.myData = result;
-      //     console.log(myData);
-      //   })
-      //   .catch(error => console.log("error", error));
+      console.log("getdata");
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch("http://localhost:8080/api/getClasses", requestOptions)
+        .then(response => response.json())
+        .then(result => {
+          console.log("fetched myData");
+          this.myData = result;
+          console.log(this.myData);
+        })
+        .catch(error => console.log("error", error));
     },
     getValue(i) {
-      this.val = i;
-      document.getElementById("search").value = this.val;
+      this.val = i.Name;
       document.getElementsByClassName("option")[0].style.display = "none";
     },
-    getId(i) {
-      this.id = i.classId;
-    },
     getObj(i) {
+      console.log(i);
+      this.getValue(i.Name);
+      this.search = i.Name;
       this.myObj = i;
     },
     getObInfo() {
@@ -200,15 +187,12 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      fetch(
-        "http://192.168.1.26:8080/classinfo/" + this.myObj.classId + "/",
-        requestOptions
-      ) //id g damjulna
+      let url = "http://localhost:8080/classinfo/" + this.myObj.clasId;
+      fetch(url, requestOptions) //id g damjulna
         .then(response => response.json())
         .then(result => {
-          console.log("fetched myData");
-          this.obinfo = result;
-          console.log(obinfo);
+          console.log("fetched myData", result[0]);
+          this.obinfo = result[0];
         })
         .catch(error => console.log("error", error));
     }
@@ -216,11 +200,8 @@ new Vue({
   computed: {
     filteredClass: function() {
       return this.myData.filter(i => {
-        return i.name.match(this.search);
+        return i.Name.includes(this.search);
       });
     }
-  },
-  created() {
-    // getData();
   }
 });
