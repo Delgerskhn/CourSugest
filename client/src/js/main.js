@@ -108,8 +108,8 @@
   }
 }); */
 // tsetse-iin bicsen heseg ehelj bn hihi endees shineer
-new Vue({
-  el: ".search",
+/* new Vue({
+  el: ".type body-item",
   data: {
     search: "",
     myLessons: [],
@@ -135,11 +135,89 @@ new Vue({
   },
   computed: {
     // search hesegt haruulahdaa i.name gej haruulna shuu huurhnuu
-
     filteredClass: function() {
       return this.myData.filter(i => {
         return i.name.match(this.search);
       });
     }
+  }
+}); */
+new Vue({
+  el: "#con",
+  data: {
+    obinfo: {},
+    id: "",
+    val: "",
+    search: "",
+    myData: [],
+    myObj: {}
+  },
+  methods: {
+    getData() {
+      this.myData = [
+        {
+          name: "tse",
+          id: "122"
+        },
+        {
+          name: "hha",
+          id: "555"
+        },
+        {
+          name: "hho",
+          id: "666"
+        }
+      ];
+      // var requestOptions = {
+      //   method: "GET",
+      //   redirect: "follow"
+      // };
+      // fetch("http://192.168.1.26:8080/api/getClasses", requestOptions)
+      //   .then(response => response.json())
+      //   .then(result => {
+      //     console.log("fetched myData");
+      //     this.myData = result;
+      //     console.log(myData);
+      //   })
+      //   .catch(error => console.log("error", error));
+    },
+    getValue(i) {
+      this.val = i;
+      document.getElementById("search").value = this.val;
+      document.getElementsByClassName("option")[0].style.display = "none";
+    },
+    getId(i) {
+      this.id = i.classId;
+    },
+    getObj(i) {
+      this.myObj = i;
+    },
+    getObInfo() {
+      var requestOptions = {
+        method: "GET",
+        redirect: "follow"
+      };
+      fetch(
+        "http://192.168.1.26:8080/classinfo/" + this.myObj.classId + "/",
+        requestOptions
+      ) //id g damjulna
+        .then(response => response.json())
+        .then(result => {
+          console.log("fetched myData");
+          this.obinfo = result;
+          console.log(obinfo);
+        })
+        .catch(error => console.log("error", error));
+    }
+  },
+  computed: {
+    filteredClass: function() {
+      return this.myData.filter(i => {
+        return i.name.match(this.search);
+      });
+    }
+  },
+  created() {
+    // getData();
   }
 });
