@@ -14,6 +14,30 @@
             flex-direction: column;
             flex: 1 1 auto;
         }
+        .zar-header {
+            display: flex;
+            height: 24px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 40px;
+            margin-bottom: 21px;
+            color: #333333;
+            text-shadow: none;
+          }
+        .zar-header:after {
+            content: "";
+            border-top: 1px solid;
+            margin: 0 20px 0 0;
+            flex: 1 0 20px;
+          }
+          
+          .zar-header:after {
+            margin: 0 0 0 24px;
+          }
         .login{
             height:31px;
             background: var(--login);
@@ -52,7 +76,7 @@
             margin-bottom: 20px;
         }
         .class-info {
-            border: 1px solid rgb(185, 185, 185);
+            border: 1px solid #eee;
             border-radius: 4px;
         }
         .body-item p{
@@ -156,6 +180,7 @@
         }
         .data-result{
             flex-direction: row;
+            min-height:300px;
         }
         .md{
             opacity: 0.5;
