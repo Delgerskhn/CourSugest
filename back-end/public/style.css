@@ -112,6 +112,18 @@
             margin-bottom: 20px;
             
         }
+        .big {
+            width: 70% !important;
+            height: 20px !important;
+        }
+        .loadings {
+            border-radius: 3px;
+            width: 50%;
+            height: 12px;
+            margin: 10px;
+            animation: pulse 1s infinite ease-in-out;
+            -webkit-animation: pulse 1s infinite ease-in-out;
+        }
         .type{
             margin-top: 5%;
             flex-direction: row;
@@ -219,4 +231,27 @@
         a:hover{
             text-decoration: underline;
         }
-        
+        @keyframes pulse
+        {
+            0%{
+              background-color: rgba(165, 165, 165, 0.2); 
+            }
+            50%{
+                background-color: rgba(165, 165, 165, 0.4); 
+              }
+            100%{
+                background-color: rgba(165, 165, 165, 0.2); 
+             }
+        }
+        @-webkit-keyframes pulse 
+        {
+            0%{
+                background-color: rgba(165, 165, 165, 0.2); 
+              }
+              50%{
+                  background-color: rgba(165, 165, 165, 0.4); 
+                }
+              100%{
+                  background-color: rgba(165, 165, 165, 0.2); 
+               }
+        }
