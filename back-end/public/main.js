@@ -28,8 +28,6 @@ new Vue({
     getValue(i) {
       this.val = i.Name;
       document.getElementsByClassName("option")[0].style.display = "none";
-      // document.getElementsByClassName("option-container")[0].style.display =
-      // "none";
       filteredClass = [];
     },
     getObj(i) {
@@ -43,7 +41,11 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let url = "http://localhost:8080/classinfo/" + this.myObj.clasId;
+      let url =
+        "http://localhost:8080/classinfo/" +
+        this.myObj.clasId +
+        "_" +
+        myObj.Name;
       fetch(url, requestOptions) //id g damjulna
         .then(response => response.json())
         .then(result => {

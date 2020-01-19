@@ -46,9 +46,11 @@
         <div
           class="option"
           v-for="i in filteredClass"
-          v-text="i.Name"
+          v-text="i.Name +'('+i.clasId+')' "
           @click="getObj(i)"
-        ></div>
+        >
+          {{i.Name}}({{i.clasID}})
+        </div>
       </div>
       <div class="info body-item">
         <div class="info body-item">
@@ -119,7 +121,7 @@
 
     <script>
       function func() {
-        window.scrollTo(0, 550);
+        window.scrollTo(0, 10000);
         time;
       }
     </script>
