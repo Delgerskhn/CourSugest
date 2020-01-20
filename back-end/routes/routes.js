@@ -17,36 +17,34 @@ let appRouter = function(app) {
     fs.readFile(__dirname + "/hicheel.json", (err, data) => {
       if (err) throw err;
       arr = filterClass(data, classId);
-      console.log(arr);
-      classId = arr[0].Name;
-      fs.readFile(__dirname + "/teacher.json", (err, data) => {
-        if (err) throw err;
-        arr.push(filterTeacher(data, classId));
-        res.send(arr);
-      });
+      res.send(arr);
+      // classId = arr[0].Name;
+      // fs.readFile(__dirname + "/teacher.json", (err, data) => {
+      //   if (err) throw err;
+      //   arr.push(filterTeacher(data, classId));
+      //   res.send(arr);
+      // });
     });
   });
   app.get("/test", (req, res) => {
-    fs.readFile(__dirname + "/classes.json", (err, data) => {
+    fs.readFile(__dirname + "/hicheel.json", (err, data) => {
       res.send(Filtering(data));
     });
   });
 };
 let Filtering = Adata => {
   Adata = JSON.parse(Adata);
-  let arr = [];
-  for (let i = 0; i < Adata.length; i++) {
-    let cont = 0;
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[j].Name === Adata[i].Name && arr[j].clasId === Adata[i].clasId) {
-        cont++;
-      }
-    }
-    if (!cont) {
-      arr.push(Adata[i]);
-    }
-  }
-  return arr;
+  return Adata.map(function(x) {
+    return {
+      ID: x.Хичээлийн_индекс,
+      Name: x.Монгол_нэр,
+      Бүтэц: x.Харьяалах_бүтэц,
+      Тэнхим: x.Харьяалах_тэнхим,
+      Түвшин: x.Сургалтын_түвшин,
+      Season: x.Орох_улирал,
+      Багц: x.Багц_цаг
+    };
+  });
 };
 
 let filterClass = (data, classId) => {

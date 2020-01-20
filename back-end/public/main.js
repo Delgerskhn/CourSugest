@@ -7,9 +7,9 @@ new Vue({
     search: "",
     myData: [],
     myObj: {},
-    loaderClass: 'loading'
+    loaderClass: "loading"
   },
-  created: function () {
+  created: function() {
     this.getData();
   },
   methods: {
@@ -22,7 +22,7 @@ new Vue({
         .then(response => response.json())
         .then(result => {
           this.myData = result;
-          this.loaderClass = 'body-info';
+          this.loaderClass = "body-info";
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
@@ -45,11 +45,7 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let url =
-        "/classinfo/" +
-        this.myObj.clasId +
-        "_" +
-        myObj.Name;
+      let url = "/classinfo/" + this.myObj.clasId;
       fetch(url, requestOptions) //id g damjulna
         .then(response => response.json())
         .then(result => {
@@ -61,7 +57,7 @@ new Vue({
     }
   },
   computed: {
-    filteredClass: function () {
+    filteredClass: function() {
       return this.myData.filter(i => {
         return i.Name.toLowerCase().includes(this.search.toLowerCase());
       });
