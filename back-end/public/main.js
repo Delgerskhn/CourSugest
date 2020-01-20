@@ -6,9 +6,10 @@ new Vue({
     val: "",
     search: "",
     myData: [],
-    myObj: {}
+    myObj: {},
+    loaderClass: 'loading'
   },
-  created: function() {
+  created: function () {
     this.getData();
   },
   methods: {
@@ -17,10 +18,11 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      fetch("http://localhost:8080/api/getClasses", requestOptions)
+      fetch("/api/getClasses", requestOptions)
         .then(response => response.json())
         .then(result => {
           this.myData = result;
+          this.loaderClass = 'body-info';
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
@@ -28,8 +30,6 @@ new Vue({
     getValue(i) {
       this.val = i.Name;
       document.getElementsByClassName("option")[0].style.display = "none";
-      // document.getElementsByClassName("option-container")[0].style.display =
-      // "none";
       filteredClass = [];
     },
     getObj(i) {
@@ -43,7 +43,11 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let url = "http://localhost:8080/classinfo/" + this.myObj.clasId;
+      let url =
+        "/classinfo/" +
+        this.myObj.clasId +
+        "_" +
+        myObj.Name;
       fetch(url, requestOptions) //id g damjulna
         .then(response => response.json())
         .then(result => {
@@ -55,7 +59,7 @@ new Vue({
     }
   },
   computed: {
-    filteredClass: function() {
+    filteredClass: function () {
       return this.myData.filter(i => {
         return i.Name.includes(this.search); // toLowerCase()
       });

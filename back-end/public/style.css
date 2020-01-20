@@ -4,6 +4,10 @@
             padding: 0;
             font-family: 'Open Sans';
             scroll-behavior: smooth;
+            -webkit-transition: 2s;
+            -o-transition: 2s;
+
+
         }
         :root{
             --head: #1b4588;
@@ -111,7 +115,25 @@
         .body-item .additional{
             margin: 0 20px;
             margin-bottom: 20px;
-            
+        }
+        .body-info .loader {
+            display: none;
+        }
+        .loading {
+            height: 197px;
+        }
+        .loading .big {
+            height: 20px !important;
+        }
+        .loading .loadings {
+            border-radius: 3px;
+            height: 12px;
+            margin: 10px;
+            animation: pulse 1s infinite ease-in-out;
+            -webkit-animation: pulse 1s infinite ease-in-out;
+        }
+        .loading h3, .loading .additional {
+            display: none;
         }
         .type{
             margin-top: 5%;
@@ -129,6 +151,13 @@
             background: var(--head);
             color: white;
             height: 48px;
+            cursor: pointer;
+        }
+        .search-but:hover {
+            background-color: #1b50a4;
+        }
+        .search-but:active{
+            transform: scale(1.1);
         }
         a{
             text-decoration: none;
@@ -221,22 +250,27 @@
         a:hover{
             text-decoration: underline;
         }
-        ::-webkit-scrollbar{
-            border-radius: 3px;
-            background-color: white;
+        @keyframes pulse
+        {
+            0%{
+              background-color: rgba(165, 165, 165, 0.2); 
+            }
+            50%{
+                background-color: rgba(165, 165, 165, 0.4); 
+              }
+            100%{
+                background-color: rgba(165, 165, 165, 0.2); 
+             }
         }
-        ::-webkit-scrollbar-track{
-            border-radius: 10px;
-            border: 1px solid #eee;
-        }
-        ::-webkit-scrollbar-thumb{
-            background-color: #eee;
-            border-radius: 10px;
-            transition: 1s;
-            box-shadow: inset 0 0 5px  var(--head);
-        }
-        ::-webkit-scrollbar-thumb:hover{
-            background-color: var(--head);
-            transition: 1s;
-            box-shadow: inset 0 0 5px  white;
+        @-webkit-keyframes pulse 
+        {
+            0%{
+                background-color: rgba(165, 165, 165, 0.2); 
+              }
+              50%{
+                  background-color: rgba(165, 165, 165, 0.4); 
+                }
+              100%{
+                  background-color: rgba(165, 165, 165, 0.2); 
+               }
         }
