@@ -45,11 +45,11 @@ new Vue({
         method: "GET",
         redirect: "follow"
       };
-      let url = "/classinfo/" + this.myObj.clasId;
+      let url = "/classinfo/" + encodeURI(JSON.stringify(this.myObj));
       fetch(url, requestOptions) //id g damjulna
         .then(response => response.json())
         .then(result => {
-          console.log("fetched myData", result[0]);
+          console.log("fetched myData", result);
           this.obinfo = result[0];
         })
         .catch(error => console.log("error", error));
