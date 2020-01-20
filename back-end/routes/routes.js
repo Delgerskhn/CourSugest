@@ -27,19 +27,26 @@ let appRouter = function(app) {
     });
   });
   app.get("/test", (req, res) => {
-    fs.readFile(__dirname + "/2018allTeacher.json", (err, data) => {
+    fs.readFile(__dirname + "/classes.json", (err, data) => {
       res.send(Filtering(data));
     });
   });
 };
 let Filtering = Adata => {
   Adata = JSON.parse(Adata);
-  return Adata.map(function(x) {
-    return {
-      Name: x.Хичээлийн_нэр,
-      clasId: x.Хичээлийн_индекс
-    };
-  });
+  let arr = [];
+  for (let i = 0; i < Adata.length; i++) {
+    let cont = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j].Name === Adata[i].Name && arr[j].clasId === Adata[i].clasId) {
+        cont++;
+      }
+    }
+    if (!cont) {
+      arr.push(Adata[i]);
+    }
+  }
+  return arr;
 };
 
 let filterClass = (data, classId) => {
