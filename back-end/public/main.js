@@ -35,8 +35,10 @@ new Vue({
     getObj(i) {
       console.log(i);
       this.getValue(i.Name);
-      this.search = i.Name;
+      this.search = i.Name + "(" + i.clasId + ")";
       this.myObj = i;
+      document.getElementsByClassName("option-container")[0].style.display =
+        "none";
     },
     getObInfo() {
       var requestOptions = {
@@ -61,7 +63,7 @@ new Vue({
   computed: {
     filteredClass: function () {
       return this.myData.filter(i => {
-        return i.Name.includes(this.search); // toLowerCase()
+        return i.Name.toLowerCase().includes(this.search.toLowerCase());
       });
     }
   }
