@@ -208,6 +208,9 @@
             .first{
                 margin: 0;
             }
+            .last{
+                margin-bottom: 20px;
+            }
         }
         .footer-item{
             padding:0 10%;
