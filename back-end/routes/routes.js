@@ -27,18 +27,17 @@ let appRouter = function(app) {
     });
   });
   app.get("/test", (req, res) => {
-    fs.readFile(__dirname + "/teacher.json", (err, data) => {
-      if (err) throw err;
+    fs.readFile(__dirname + "/2018allTeacher.json", (err, data) => {
       res.send(Filtering(data));
     });
   });
 };
-let Filtering = data => {
-  data = JSON.parse(data);
-  return data.map(function(x) {
+let Filtering = Adata => {
+  Adata = JSON.parse(Adata);
+  return Adata.map(function(x) {
     return {
       Name: x.Хичээлийн_нэр,
-      Index: x.Хичээлийн_индекс
+      clasId: x.Хичээлийн_индекс
     };
   });
 };
