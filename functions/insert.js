@@ -4,6 +4,9 @@ var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: t
 const hicheel = require('../hicheel.json');
 const dun2018fall = require('../dun2018fall.json');
 const dun2018spr = require('../dun2018spr.json');
+const classChoice2018fall = require('../CC2018fall.json');
+const classChoice2018spr = require('../CC2018spr.json');
+
 client.connect((err, client) => {
     if (err) {
         console.log(err);
@@ -30,6 +33,15 @@ client.connect((err, client) => {
         return obj;
     }), (err, res) => console.log(err ? err : res))
 
+    CC2018fall.insertMany(classChoice2018fall.map(obj => {
+        obj.Хичээлийн_нэр = obj.Хичээлийн_нэр.toUpperCase();
+        return obj;
+    }), (err, res) => console.log(err ? err : res))
+
+    CC2018spr.insertMany(classChoice2018spr.map(obj => {
+        obj.Хичээлийн_нэр = obj.Хичээлийн_нэр.toUpperCase();
+        return obj;
+    }), (err, res) => console.log(err ? err : res))
 
 })
 
