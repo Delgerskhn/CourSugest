@@ -34,8 +34,6 @@ new Vue({
         })
         .catch(error => console.log("error", error));
       console.log(this.myData);
-      document.getElementsByClassName("option-container")[0].style.display =
-        "block";
     },
     getObj(i) {
       console.log(i);
@@ -62,7 +60,7 @@ new Vue({
         .then(response => response.json())
         .then(result => {
           console.log("fetched myData", result);
-          this.obinfo = result[0];
+          this.obinfo = result.info;
         })
         .catch(error => console.log("error", error));
     }
