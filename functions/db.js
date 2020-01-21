@@ -19,7 +19,7 @@ db.findByTitle = (title, callback) => {
       callback(docs);
       client.close();
     })
-  }).catch(e => callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа\n", e));
+  })
 }
 
 db.classinfo = (id, name, callback) => {
@@ -39,42 +39,42 @@ db.classinfo = (id, name, callback) => {
       ClassDet.findOne({ Name: name, ID: id })
         .then((docs) => {
           if (err) {
-            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
             console.log(err);
+            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
           }
           console.log(docs);
           res(docs);
           client.close();
         });
-    }).catch(e => console.log(e));
+    })
 
     const mf = new Promise((res, rej) => {
       Marks2018fall.find({ Хичээлийн_нэр: name })
         .project({ Үсгэн_дүн: true, Үсгэн_дүн_тоо: true, _id: false })
         .toArray((err, docs) => {
           if (err) {
-            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
             console.log(err);
+            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
           }
           console.log(docs);
           res(docs);
           client.close();
         })
-    }).catch(e => console.log("Marks2018fall error\n", e));
+    })
 
     const ms = new Promise((res, rej) => {
       Marks2018spr.find({ Хичээлийн_нэр: name })
         .project({ Үсгэн_дүн: true, Үсгэн_дүн_тоо: true, _id: false })
         .toArray((err, docs) => {
           if (err) {
-            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
             console.log(err);
+            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
           }
           console.log(docs);
           res(docs);
           client.close();
         })
-    }).catch(e => console.log("Marks2018spr error\n", e));
+    })
 
     const ccs = new Promise((res, rej) => {
       CC2018spr.find({ Хичээлийн_нэр: name }).project({
@@ -84,14 +84,14 @@ db.classinfo = (id, name, callback) => {
         _id: false
       }).toArray((err, docs) => {
         if (err) {
-          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
           console.log(err);
+          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
         }
         console.log(docs);
         res(docs);
         client.close();
       })
-    }).catch(e => console.log("CC2018spr error\n", e));
+    })
 
     const ccf = new Promise((res, rej) => {
       CC2018fall.find({ Хичээлийн_нэр: name }).project({
@@ -101,14 +101,14 @@ db.classinfo = (id, name, callback) => {
         _id: false
       }).toArray((err, docs) => {
         if (err) {
-          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
           console.log(err);
+          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
         }
         console.log(docs);
         res(docs);
         client.close();
       })
-    }).catch(e => console.log("CC2018fall error\n", e));
+    })
 
     Promise.all([cd, mf, ms, ccs, ccf]).then(function (values) {
       let sendObject = {};
@@ -118,7 +118,7 @@ db.classinfo = (id, name, callback) => {
       sendObject.teachersspr = values[3];
       sendObject.teachersfall = values[4];
       callback(sendObject);
-    }).catch(e => console.log("All promise execution error\n", e))
+    })
 
   });
 }
