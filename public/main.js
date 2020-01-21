@@ -10,29 +10,34 @@ new Vue({
   },
   methods: {
     find() {
-      console.log("Button clicked");
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var raw = {
-        title: this.search
-      };
-      var requestOptions = {
-        method: "POST",
-        redirect: "follow",
-        headers: myHeaders,
-        body: JSON.stringify(raw)
-      };
-      fetch("/api/findByTitle", requestOptions)
-        .then(response => {
-          return response.json();
-        })
-        .then(result => {
-          this.myData = result;
-          this.loaderClass = "body-info";
-          this.isSearched = true;
-          console.log(this.myData);
-        })
-        .catch(error => console.log("error", error));
+      if (this.search.length > 4) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = {
+          title: this.search
+        };
+        var requestOptions = {
+          method: "POST",
+          redirect: "follow",
+          headers: myHeaders,
+          body: JSON.stringify(raw)
+        };
+        fetch("/api/findByTitle", requestOptions)
+          .then(response => {
+            console.log(response);
+            return response.json();
+          })
+          .then(result => {
+            this.myData = result;
+            this.loaderClass = "body-info";
+            this.isSearched = true;
+            console.log(this.myData);
+          })
+          .catch(error => console.log("error", error));
+        console.log(this.myData);
+      } else {
+        this.search = "4-с дээш үсэгтэй үг оруулна уу!";
+      }
     },
     getObj(i) {
       console.log(i);
