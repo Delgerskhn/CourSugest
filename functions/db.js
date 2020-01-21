@@ -1,7 +1,6 @@
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://deved11:deved11@inkdrop01-krs6g.azure.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const classChoice = require('./routes/classChoice.json')
 
 const db = {};
 db.findByTitle = (title, callback) => {

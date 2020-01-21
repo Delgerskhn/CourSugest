@@ -3,4 +3,4 @@ node_module -иудыг суулгахдаа:
 
 Серверийг асаахдаа terminal дээрээ:
 1. cd functions
-2. npx firebase serve
+2. npm run static

@@ -2,10 +2,11 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let routes = require("./routes/routes.js");
 let app = express();
+let path = require('path');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(path.join(__dirname, "../public")));
 
 routes(app);
 
