@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD:back-end/public/index.html
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,40 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"> 
     <title>UManage</title>
+=======
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+  <title>UManage</title>
+>>>>>>> d486771f7354036c57e1ae5908067ec33de2d8fc:public/index.html
 </head>
-  <body>
-    <div class="header">
-      <div class="head fit h1">
-        <div class="logo">
-          <img src="82754505_469405780617299_635147322874920960_n.png" alt="" />
-          <h1>Manage</h1>
-        </div>
-        <div onclick="func()" class="buttons">
-          <i class="far fa-address-card"> <span class="Us">About Us</span></i>
-        </div>
+
+<body>
+  <div class="header">
+    <div class="head fit h1">
+      <div class="logo">
+        <img src="82754505_469405780617299_635147322874920960_n.png" alt="" />
+        <h1>Manage</h1>
+      </div>
+      <div onclick="func()" class="buttons">
+        <i class="far fa-address-card"> <span class="Us">About Us</span></i>
       </div>
     </div>
+  </div>
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
       <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
-      <button type="submit" @click=" getObInfo()" class="search-but">
+      <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
     </div>
     <div class="option-container" v-if="search.length!= 0">
-      <div class="option" v-for="i in filteredClass" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
+      <div class="option" v-for="i in myData" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
         {{i.Name}}({{i.clasID}})
       </div>
     </div>
@@ -95,8 +107,8 @@
       </div>
     </div>
   </div>
-  <script src="vueDoc.js"></script>
-  <script src="main.js"></script>
+  <script src="./vueDoc.js"></script>
+  <script src="./main.js"></script>
 
   <script>
     function func() {
