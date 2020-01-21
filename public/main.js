@@ -26,7 +26,7 @@ new Vue({
       fetch("/api/findByTitle", requestOptions)
         .then(response => {
           console.log(response);
-          response.json();
+          return response.json();
         })
         .then(result => {
           this.myData = result;
@@ -34,6 +34,7 @@ new Vue({
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
+      console.log(this.myData);
     },
     // getValue(i) {
     //   this.val = i.Name;
