@@ -5,7 +5,8 @@ new Vue({
     search: "",
     myData: [],
     myObj: {},
-    loaderClass: "loading"
+    loaderClass: "loading",
+    isSearched: false
   },
   methods: {
     find() {
@@ -29,23 +30,22 @@ new Vue({
           .then(result => {
             this.myData = result;
             this.loaderClass = "body-info";
+            this.isSearched = true;
             console.log(this.myData);
           })
           .catch(error => console.log("error", error));
         console.log(this.myData);
-        document.getElementsByClassName("option-container")[0].style.display =
-          "block";
       } else {
-        this.search = "4-с дээш урттай үг оруулна уу?";
+        this.search = "4-с дээш үсэгтэй үг оруулна уу!";
       }
     },
     getObj(i) {
       console.log(i);
       this.myObj = i;
-      document.getElementsByClassName("option-container")[0].style.display =
-        "none";
+      this.isSearched = false;
       this.myData = [];
       this.search = "";
+      this.getObInfo();
     },
     getObInfo() {
       var myHeaders = new Headers();
@@ -64,7 +64,7 @@ new Vue({
         .then(response => response.json())
         .then(result => {
           console.log("fetched myData", result);
-          this.obinfo = result[0];
+          this.obinfo = result.info;
         })
         .catch(error => console.log("error", error));
     }

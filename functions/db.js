@@ -1,19 +1,22 @@
+
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://deved11:deved11@inkdrop01-krs6g.azure.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
 const db = {};
 db.findByTitle = (title, callback) => {
-  client.connect(err => {
+
+  var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect((err, client) => {
     if (err) {
       console.log(err);
-      callback("Database error", err)
+      callback("Database error", client)
+      client.close();
     }
     const collection = client.db("UManage").collection("Classes");
     collection.find({ Name: new RegExp(title) }).toArray((err, docs) => {
       if (err) {
         console.log(err);
         callback("Database error", err)
+        client.close();
       }
       console.log(docs);
       callback(docs);
@@ -23,10 +26,11 @@ db.findByTitle = (title, callback) => {
 }
 
 db.classinfo = (id, name, callback) => {
-  client.connect(err => {
+  var client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  client.connect((err, client) => {
     if (err) {
       console.log(err);
-      callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
+      callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err);
     }
     const db = client.db("UManage");
     const ClassDet = db.collection("ClassDet");
@@ -44,7 +48,6 @@ db.classinfo = (id, name, callback) => {
           }
           console.log(docs);
           res(docs);
-          client.close();
         });
     })
 
@@ -58,7 +61,6 @@ db.classinfo = (id, name, callback) => {
           }
           console.log(docs);
           res(docs);
-          client.close();
         })
     })
 
@@ -68,11 +70,10 @@ db.classinfo = (id, name, callback) => {
         .toArray((err, docs) => {
           if (err) {
             console.log(err);
-            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
+            callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err);
           }
           console.log(docs);
           res(docs);
-          client.close();
         })
     })
 
@@ -85,11 +86,10 @@ db.classinfo = (id, name, callback) => {
       }).toArray((err, docs) => {
         if (err) {
           console.log(err);
-          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
+          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err);
         }
         console.log(docs);
         res(docs);
-        client.close();
       })
     })
 
@@ -102,11 +102,10 @@ db.classinfo = (id, name, callback) => {
       }).toArray((err, docs) => {
         if (err) {
           console.log(err);
-          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err)
+          callback("Өгөгдлийн сантай холбогдох үед алдаа гарлаа", err);
         }
         console.log(docs);
         res(docs);
-        client.close();
       })
     })
 
@@ -118,6 +117,7 @@ db.classinfo = (id, name, callback) => {
       sendObject.teachersspr = values[3];
       sendObject.teachersfall = values[4];
       callback(sendObject);
+      client.close();
     })
 
   });

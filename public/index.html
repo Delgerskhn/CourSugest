@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <title>UManage</title>
 </head>
-
 <body>
   <div class="header">
     <div class="head fit h1">
@@ -31,7 +30,7 @@
         ХАЙХ
       </button>
     </div>
-    <div class="option-container" v-if="search.length!= 0">
+    <div class="option-container" v-if="isSearched">
       <div class="option" v-for="i in myData" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
         {{i.Name}}({{i.clasID}})
       </div>
@@ -48,7 +47,7 @@
             <div class="loadings"></div>
             <div class="loadings"></div>
           </div>
-          <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}</h3>
+          <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}({{obinfo.ID}})</h3>
           <div class="additional">
             <p class="butets">Салбар сургууль: {{obinfo.Бүтэц}}</p>
             <p class="tenhim">Тэнхим: {{obinfo.Тэнхим}}</p>
