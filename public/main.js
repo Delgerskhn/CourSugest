@@ -26,7 +26,7 @@ new Vue({
       fetch("/api/findByTitle", requestOptions)
         .then(response => {
           console.log(response);
-          response.json();
+          return response.json();
         })
         .then(result => {
           this.myData = result;
