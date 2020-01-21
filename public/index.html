@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
   <title>UManage</title>
 </head>
+
 <body>
   <!-- <div class="blocklogch">
     <div></div>
@@ -28,7 +29,8 @@
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
-      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @keydown="check()" @click="search=''"/>
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..."
+        @keydown="check()" @click="search=''" />
       <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
@@ -67,12 +69,18 @@
         <div class="data-result class-info">
           <div class="data-result-loading">
             <div class="markFall">
-              <div class="marks" v-for='marks in MarkArrF'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
+              <div class="marks" v-for='marks in MarkArrF'>
+                <div>{{marks.Үсгэн_дүн}}</div>
+                <div>{{marks.Үсгэн_дүн_тоо}}</div>
+              </div>
             </div>
           </div>
           <div class="data-result-loading">
             <div class="markSpring">
-              <div class="marks" v-for='marks in MarkArrS'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
+              <div class="marks" v-for='marks in MarkArrS'>
+                <div>{{marks.Үсгэн_дүн}}</div>
+                <div>{{marks.Үсгэн_дүн_тоо}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -82,12 +90,18 @@
         <div class="data-result class-info">
           <div class="data-result-loading">
             <div class="teacherFall">
-              <div class="teacher" v-for="tea in teaF"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
+              <div class="teacher" v-for="tea in teaF">
+                <div>{{tea.Name}}</div>
+                <div>{{tea.Vote}}</div>
+              </div>
             </div>
           </div>
           <div class="data-result-loading">
             <div class="teacherSpring">
-              <div class="teacher" v-for="tea in teaF"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
+              <div class="teacher" v-for="tea in teaS">
+                <div>{{tea.Name}}</div>
+                <div>{{tea.Vote}}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -110,7 +124,9 @@
         <i class="fas fa-phone-alt" id="icon"> Утас: (976)-99999999</i>
       </div>
       <div class="md last">
-      <a href="https://www.facebook.com/UManage-111796760361767/?__tn__=%2Cd%3C-R&eid=ARD1CC8Db8Rpvag704mL50ypkoyB3Db0p0sjz8UVsBvMAVoz_sHxT0xO69TTHjdvt5ZWglHV0zqCKEi2"><i class="fab fa-facebook">  facebook.com/UManage</i></a>
+        <a
+          href="https://www.facebook.com/UManage-111796760361767/?__tn__=%2Cd%3C-R&eid=ARD1CC8Db8Rpvag704mL50ypkoyB3Db0p0sjz8UVsBvMAVoz_sHxT0xO69TTHjdvt5ZWglHV0zqCKEi2"><i
+            class="fab fa-facebook"> facebook.com/UManage</i></a>
         <hr />
         Created by: UManage team
       </div>

@@ -1,5 +1,5 @@
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://deved11:deved11@inkdrop01-krs6g.azure.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb://127.0.0.1:27017";
 const db = {};
 db.findByTitle = (title, callback) => {
 
