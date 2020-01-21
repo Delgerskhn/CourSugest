@@ -78,11 +78,17 @@ new Vue({
               Vote: x.Багшид_өгсөн_санал
             };
           });
+          this.teaS.sort(function(a, b) {
+            return b.Vote - a.Vote;
+          });
           this.teaF = result.teachersfall.map(function(x) {
             return {
               Name: x.Багшийн_нэр,
               Vote: x.Багшид_өгсөн_санал
             };
+          });
+          this.teaF.sort((a, b) => {
+            return b.Vote - a.Vote;
           });
         })
         .catch(error => console.log("error", error));
