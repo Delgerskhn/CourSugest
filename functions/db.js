@@ -1,4 +1,3 @@
-
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://deved11:deved11@inkdrop01-krs6g.azure.mongodb.net/test?retryWrites=true&w=majority";
 const db = {};
@@ -12,16 +11,17 @@ db.findByTitle = (title, callback) => {
       client.close();
     }
     const collection = client.db("UManage").collection("Classes");
-    collection.find({ Name: new RegExp(title) }).toArray((err, docs) => {
-      if (err) {
-        console.log(err);
-        callback("Database error", err)
+    collection.find({ Name: new RegExp(title) }).limit(10)
+      .toArray((err, docs) => {
+        if (err) {
+          console.log(err);
+          callback("Database error", err)
+          client.close();
+        }
+        console.log(docs);
+        callback(docs);
         client.close();
-      }
-      console.log(docs);
-      callback(docs);
-      client.close();
-    })
+      })
   })
 }
 
