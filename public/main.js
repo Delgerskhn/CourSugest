@@ -6,7 +6,11 @@ new Vue({
     myData: [],
     myObj: {},
     loaderClass: "loading",
-    isSearched: false
+    isSearched: false,
+    MarkArrF: [],
+    MarkArrS: [],
+    teaF: [],
+    teaS: []
   },
   methods: {
     find() {
@@ -24,23 +28,24 @@ new Vue({
         };
         fetch("/api/findByTitle", requestOptions)
           .then(response => {
-            console.log(response);
             return response.json();
           })
           .then(result => {
             this.myData = result;
             this.loaderClass = "body-info";
             this.isSearched = true;
-            console.log(this.myData);
           })
           .catch(error => console.log("error", error));
-        console.log(this.myData);
       } else {
         this.search = "4-с дээш үсэгтэй үг оруулна уу!";
       }
     },
+    check() {
+      if (event.keyCode == 13) {
+        this.find();
+      }
+    },
     getObj(i) {
-      console.log(i);
       this.myObj = i;
       this.isSearched = false;
       this.myData = [];
@@ -65,6 +70,20 @@ new Vue({
         .then(result => {
           console.log("fetched myData", result);
           this.obinfo = result.info;
+          this.MarkArrF = result.marksfall;
+          this.MarkArrS = result.marksspr;
+          this.teaS = result.teachersspr.map(function(x) {
+            return {
+              Name: x.Багшийн_нэр,
+              Vote: x.Багшид_өгсөн_санал
+            };
+          });
+          this.teaF = result.teachersfall.map(function(x) {
+            return {
+              Name: x.Багшийн_нэр,
+              Vote: x.Багшид_өгсөн_санал
+            };
+          });
         })
         .catch(error => console.log("error", error));
     }
