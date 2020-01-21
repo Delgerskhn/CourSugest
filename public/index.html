@@ -25,7 +25,7 @@
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
-      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @click="search=''" />
       <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
@@ -62,15 +62,31 @@
       <div class="data-box first">
         <h2 class="data-title zar-header">Хичээлийн дүн</h2>
         <div class="data-result class-info">
-          <div class="data-result-loading"></div>
-          <div class="data-result-loading"></div>
+          <div class="data-result-loading">
+            <div class="markFall">
+              <div class="marks" v-for='marks in MarkArrF'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
+            </div>
+          </div>
+          <div class="data-result-loading">
+            <div class="markSpring">
+              <div class="marks" v-for='marks in MarkArrS'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="data-box">
         <h2 class="data-title zar-header">Багш нарын индекс</h2>
         <div class="data-result class-info">
-          <div class="data-result-loading"></div>
-          <div class="data-result-loading"></div>
+          <div class="data-result-loading">
+            <div class="teacherFall">
+              <div class="teacher" v-for="tea in teaF"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
+            </div>
+          </div>
+          <div class="data-result-loading">
+            <div class="teacherSpring">
+              <div class="teacher" v-for="tea in teaF"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -290,3 +290,19 @@ a:hover {
     background-color: rgba(165, 165, 165, 0.2);
   }
 }
+.data-result-loading {
+  width: 50%;
+  color: black;
+}
+.marks,
+.teacher {
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}
+.marks > div {
+  width: 50%;
+}
+.teacher > div {
+  width: 50%;
+}
