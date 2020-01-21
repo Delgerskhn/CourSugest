@@ -7,9 +7,6 @@ new Vue({
     myObj: {},
     loaderClass: "loading"
   },
-  created: function() {
-    // this.getData();
-  },
   methods: {
     find() {
       var myHeaders = new Headers();
@@ -35,19 +32,16 @@ new Vue({
         })
         .catch(error => console.log("error", error));
       console.log(this.myData);
+      document.getElementsByClassName("option-container")[0].style.display =
+        "block";
     },
-    // getValue(i) {
-    //   this.val = i.Name;
-    //   document.getElementsByClassName("option")[0].style.display = "none";
-    //   filteredClass = [];
-    // },
     getObj(i) {
       console.log(i);
-      //this.getValue(i.Name);
-      //this.search = i.Name + "(" + i.clasId + ")";
       this.myObj = i;
       document.getElementsByClassName("option-container")[0].style.display =
         "none";
+      this.myData = [];
+      this.search = "";
     },
     getObInfo() {
       var myHeaders = new Headers();
@@ -69,14 +63,6 @@ new Vue({
           this.obinfo = result[0];
         })
         .catch(error => console.log("error", error));
-      this.search = "";
     }
   }
-  // computed: {
-  //   filteredClass: function() {
-  //     return this.myData.filter(i => {
-  //       return i.Name.toLowerCase().includes(this.search.toLowerCase());
-  //     });
-  //   }
-  // }
 });
