@@ -28,7 +28,7 @@
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
-      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @keydown="check()" @click="search=''"/>
       <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
