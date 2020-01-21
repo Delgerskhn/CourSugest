@@ -18,7 +18,6 @@ client.connect((err, client) => {
     const Marks2018spr = db.collection("Marks2018spr");
     const CC2018spr = db.collection("classChoice2018spr");
     const CC2018fall = db.collection("ClassChoice2018fall");
-    const Classes = db.collection("Classes");
 
     Classes.insertMany(classes.map(obj => {
         obj.Name = obj.Name.toUpperCase();
