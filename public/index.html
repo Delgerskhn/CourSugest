@@ -53,12 +53,12 @@
             <div class="loadings"></div>
           </div>
           <h3 class="name">Хичээлийн нэр: {{obinfo.Name}}({{obinfo.ID}})</h3>
-          <div class="additional" id="KhenBaiID">
-            <div class="butets infocontainers"><div class="Some-class">Салбар сургууль</div> {{obinfo.Бүтэц}}</div>
-            <div class="tenhim infocontainers"><div class="Some-class">Тэнхим</div> {{obinfo.Тэнхим}}</div>
-            <div class="tuvshin infocontainers"><div class="Some-class">Түвшин</div> {{obinfo.Түвшин}}</div>
-            <div class="uliral infocontainers"><div class="Some-class">Улирал</div> {{obinfo.Season}}</div>
-            <div class="bagts infocontainers"><div class="Some-class">Багц цаг</div> {{obinfo.Багц}}Бц</div>
+          <div class="additional">
+            <p class="butets">Салбар сургууль: {{obinfo.Бүтэц}}</p>
+            <p class="tenhim">Тэнхим: {{obinfo.Тэнхим}}</p>
+            <p class="tuvshin">Түвшин: {{obinfo.Түвшин}}</p>
+            <p class="uliral">Улирал: {{obinfo.Season}}</p>
+            <p class="bagts">Багц цаг: {{obinfo.Багц}}</p>
           </div>
         </div>
       </div>
@@ -68,23 +68,19 @@
         <h2 class="data-title zar-header">Хичээлийн дүн</h2>
         <div class="data-result class-info">
           <div class="data-result-loading">
-            <div class="Khead">Намар</div>
             <div class="markFall">
-              <div class="Khead">
-                <div>Үсгэн дүн</div>
-                <div>Сурагчид</div>
+              <div class="marks" v-for='marks in MarkArrF'>
+                <div>{{marks.Үсгэн_дүн}}</div>
+                <div>{{marks.Үсгэн_дүн_тоо}}</div>
               </div>
-              <div class="marks" v-for='marks in MarkArrF'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
             </div>
           </div>
           <div class="data-result-loading">
-            <div class="Khead">Хавар</div>
             <div class="markSpring">
-              <div class="Khead">
-                <div>Үсгэн дүн</div>
-                <div>Сурагчид</div>
+              <div class="marks" v-for='marks in MarkArrS'>
+                <div>{{marks.Үсгэн_дүн}}</div>
+                <div>{{marks.Үсгэн_дүн_тоо}}</div>
               </div>
-              <div class="marks" v-for='marks in MarkArrS'><div>{{marks.Үсгэн_дүн}}</div><div>{{marks.Үсгэн_дүн_тоо}}</div></div>
             </div>
           </div>
         </div>
@@ -93,23 +89,19 @@
         <h2 class="data-title zar-header">Багш нарын индекс</h2>
         <div class="data-result class-info">
           <div class="data-result-loading">
-            <div class="Khead">Намар</div>
             <div class="teacherFall">
-              <div class="Khead">
-                <div>Багшийн нэр</div>
-                <div>Авсан санал</div>
+              <div class="teacher" v-for="tea in teaF">
+                <div>{{tea.Name}}</div>
+                <div>{{tea.Vote}}</div>
               </div>
-              <div class="teacher" v-for="tea in teaF"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
             </div>
           </div>
           <div class="data-result-loading">
-            <div class="Khead">Хавар</div>
             <div class="teacherSpring">
-              <div class="Khead">
-                <div>Багшийн нэр</div>
-                <div>Авсан санал</div>
+              <div class="teacher" v-for="tea in teaS">
+                <div>{{tea.Name}}</div>
+                <div>{{tea.Vote}}</div>
               </div>
-              <div class="teacher" v-for="tea in teaS"><div>{{tea.Name}}</div><div>{{tea.Vote}}</div></div>
             </div>
           </div>
         </div>
