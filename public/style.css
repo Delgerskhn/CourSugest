@@ -340,6 +340,7 @@ a:hover {
   display: flex;
   flex-wrap: wrap;
   max-height: 20px;
+  min-width: 20px;
   margin-top: 7px;
 }
 .marks > div {
