@@ -10,6 +10,7 @@ new Vue({
   },
   methods: {
     find() {
+      console.log("Button clicked");
       var myHeaders = new Headers();
       myHeaders.append("Content-Type", "application/json");
       var raw = {
@@ -23,7 +24,6 @@ new Vue({
       };
       fetch("/api/findByTitle", requestOptions)
         .then(response => {
-          console.log(response);
           return response.json();
         })
         .then(result => {
@@ -33,7 +33,6 @@ new Vue({
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
-      console.log(this.myData);
     },
     getObj(i) {
       console.log(i);
