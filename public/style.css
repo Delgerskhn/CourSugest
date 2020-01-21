@@ -39,10 +39,6 @@ div {
   width: 91.5%;
   z-index: 1;
 }
-.option-container div {
-  padding: 5px 0;
-  cursor: pointer;
-}
 .option-container div:hover {
   background: #eee;
 }
@@ -228,6 +224,12 @@ hr {
   .first {
     margin-right: 30px;
   }
+  .option-container div {
+    padding: 5px 0;
+    cursor: pointer;
+    min-height: 30px;
+    margin: 5px 0;
+  }
 }
 @media only screen and (max-width: 768px) {
   .data {
@@ -255,6 +257,11 @@ hr {
   }
   .Us {
     display: none;
+  }
+  .option-container div{
+    min-height: 40px;
+    padding: 5px 0;
+    margin: 5px 0;
   }
 }
 .footer-item {
