@@ -6,17 +6,24 @@ const dun2018fall = require('../dun2018fall.json');
 const dun2018spr = require('../dun2018spr.json');
 const classChoice2018fall = require('../CC2018fall.json');
 const classChoice2018spr = require('../CC2018spr.json');
-
+const classes = require('../classes.json');
 client.connect((err, client) => {
     if (err) {
         console.log(err);
     }
     const db = client.db("UManage");
+    const Classes = db.collection("Classes");
     const ClassDet = db.collection('ClassDet');
     const Marks2018fall = db.collection("Marks2018fall");
     const Marks2018spr = db.collection("Marks2018spr");
     const CC2018spr = db.collection("classChoice2018spr");
     const CC2018fall = db.collection("ClassChoice2018fall");
+    const Classes = db.collection("Classes");
+
+    Classes.insertMany(classes.map(obj => {
+        obj.Name = obj.Name.toUpperCase();
+        return obj;
+    }), (err, res) => console.log(err ? err : res));
 
     ClassDet.insertMany(hicheel.map(obj => {
         obj.Name = obj.Name.toUpperCase();
