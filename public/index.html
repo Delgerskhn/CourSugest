@@ -26,12 +26,12 @@
   <div class="body fit" id="con">
     <div class="type body-item">
       <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." />
-      <button type="submit" @click=" getObInfo()" class="search-but">
+      <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
     </div>
     <div class="option-container" v-if="search.length!= 0">
-      <div class="option" v-for="i in filteredClass" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
+      <div class="option" v-for="i in myData" v-text="i.Name +'('+i.clasId+')' " @click="getObj(i)">
         {{i.Name}}({{i.clasID}})
       </div>
     </div>
