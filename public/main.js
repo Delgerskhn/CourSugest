@@ -40,6 +40,11 @@ new Vue({
         this.search = "4-с дээш үсэгтэй үг оруулна уу!";
       }
     },
+    check() {
+      if (event.keyCode == 13) {
+        this.find();
+      }
+    },
     getObj(i) {
       this.myObj = i;
       this.isSearched = false;

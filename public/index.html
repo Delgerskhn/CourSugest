@@ -11,6 +11,9 @@
   <title>UManage</title>
 </head>
 <body>
+  <!-- <div class="blocklogch">
+    <div></div>
+   </div>-->
   <div class="header">
     <div class="head fit h1">
       <div class="logo">
@@ -25,7 +28,7 @@
   </div>
   <div class="body fit" id="con">
     <div class="type body-item">
-      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @click="search=''" />
+      <input v-model="search" id="search" type="text" class="search" placeholder="Хичээлийн нэрийг оруулна уу..." @keydown="check()" @click="search=''"/>
       <button type="submit" @click="find()" class="search-but">
         ХАЙХ
       </button>
@@ -104,10 +107,10 @@
         туслахад оршино.
       </div>
       <div class="md">
-        <i class="fas fa-phone-alt"> Утас: (976)-99999999</i>
+        <i class="fas fa-phone-alt" id="icon"> Утас: (976)-99999999</i>
       </div>
       <div class="md last">
-        <i class="fas fa-globe-asia"> Вэб хуудас:</i><a href="">Haha@haha.com</a>
+      <a href="https://www.facebook.com/UManage-111796760361767/?__tn__=%2Cd%3C-R&eid=ARD1CC8Db8Rpvag704mL50ypkoyB3Db0p0sjz8UVsBvMAVoz_sHxT0xO69TTHjdvt5ZWglHV0zqCKEi2"><i class="fab fa-facebook">  facebook.com/UManage</i></a>
         <hr />
         Created by: UManage team
       </div>

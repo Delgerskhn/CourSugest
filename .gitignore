@@ -10,6 +10,8 @@
 !.vscode/launch.json
 !.vscode/extensions.json
 node_modules
+.firebaserc
+.firebase.json
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history

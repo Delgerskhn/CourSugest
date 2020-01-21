@@ -11,6 +11,17 @@ html {
   --head: #1b4588;
   --login: #143b78;
 }
+.blocklogch{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, .4);
+}
 div {
   display: flex;
   flex-direction: column;
@@ -75,8 +86,11 @@ div {
   text-align: center;
   line-height: 91px;
 }
-i {
+.far{
   margin-top: 36px;
+}
+i{
+  margin-top:10px ;
 }
 .buttons:hover {
   background-color: var(--login);
