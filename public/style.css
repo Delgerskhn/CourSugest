@@ -39,10 +39,6 @@ div {
   width: 91.5%;
   z-index: 1;
 }
-.option-container div {
-  padding: 5px 0;
-  cursor: pointer;
-}
 .option-container div:hover {
   background: #eee;
 }
@@ -229,6 +225,17 @@ hr {
     margin-right: 30px;
     max-width: 300px;
   }
+  .option-container div {
+    padding: 5px 0;
+    cursor: pointer;
+    min-height: 30px;
+    margin: 5px 0;
+  }
+  .Some-class {
+    min-width: 115px;
+    max-width: 115px;
+    margin-right: 10px;
+  }
 }
 @media only screen and (max-width: 768px) {
   .data {
@@ -262,6 +269,15 @@ hr {
   }
   .teacher > div {
     font-size: 13px;
+  }
+  .option-container div {
+    min-height: 40px;
+    padding: 5px 0;
+    margin: 5px 0;
+  }
+  .Some-class {
+    min-width: 65px;
+    max-width: 65px;
   }
 }
 .footer-item {
@@ -341,10 +357,6 @@ a:hover {
   padding-left: 3%;
   text-align: left;
 }
-.Some-class {
-  min-width: 115px;
-  max-width: 115px;
-}
 #KhenBaiID > div {
   display: flex;
   flex-direction: row;
@@ -367,4 +379,13 @@ a:hover {
 .Khead > div:nth-child(2) {
   text-align: right;
   padding-right: 5%;
+}
+.Some-class {
+  border-right: 1px solid #eee;
+}
+.infocontainers {
+  border-bottom: 1px solid #eee;
+}
+.infocontainers:last-child {
+  border-bottom: none;
 }
