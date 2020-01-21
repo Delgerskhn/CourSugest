@@ -11,7 +11,7 @@ html {
   --head: #1b4588;
   --login: #143b78;
 }
-.blocklogch{
+.blocklogch {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -20,7 +20,7 @@ html {
   right: 0;
   bottom: 0;
   z-index: 2;
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 div {
   display: flex;
@@ -82,11 +82,11 @@ div {
   text-align: center;
   line-height: 91px;
 }
-.far{
+.far {
   margin-top: 36px;
 }
-i{
-  margin-top:10px ;
+i {
+  margin-top: 10px;
 }
 .buttons:hover {
   background-color: var(--login);
@@ -223,12 +223,18 @@ hr {
   }
   .first {
     margin-right: 30px;
+    max-width: 300px;
   }
   .option-container div {
     padding: 5px 0;
     cursor: pointer;
     min-height: 30px;
     margin: 5px 0;
+  }
+  .Some-class {
+    min-width: 115px;
+    max-width: 115px;
+    margin-right: 10px;
   }
 }
 @media only screen and (max-width: 768px) {
@@ -258,10 +264,20 @@ hr {
   .Us {
     display: none;
   }
-  .option-container div{
+  .Khead > div {
+    font-size: 12px !important;
+  }
+  .teacher > div {
+    font-size: 13px;
+  }
+  .option-container div {
     min-height: 40px;
     padding: 5px 0;
     margin: 5px 0;
+  }
+  .Some-class {
+    min-width: 65px;
+    max-width: 65px;
   }
 }
 .footer-item {
@@ -270,7 +286,7 @@ hr {
 }
 .data-result {
   flex-direction: row;
-  min-height: 300px;
+  min-height: 200px;
 }
 .md {
   opacity: 0.5;
@@ -313,17 +329,64 @@ a:hover {
 }
 .data-result-loading {
   width: 50%;
-  color: black;
+  border-right: 1px solid #eee;
+}
+.marks {
+  max-width: 100%;
 }
 .marks,
 .teacher {
-  flex-direction: column;
+  flex-direction: row;
   display: flex;
   flex-wrap: wrap;
+  max-height: 20px;
+  min-width: 20px;
+  margin-top: 7px;
 }
 .marks > div {
-  width: 50%;
+  width: 40%;
+  padding-left: 10%;
 }
-.teacher > div {
-  width: 50%;
+.teacher > div:nth-child(2) {
+  max-width: 10%;
+  min-width: 10%;
+  text-align: left;
+}
+.teacher > div:nth-child(1) {
+  max-width: 87%;
+  min-width: 85%;
+  padding-left: 3%;
+  text-align: left;
+}
+#KhenBaiID > div {
+  display: flex;
+  flex-direction: row;
+}
+.Khead {
+  max-height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-bottom: 1px solid #eee;
+}
+.Khead > div {
+  font-size: 14px;
+}
+.Khead > div:nth-child(1) {
+  text-align: left;
+  padding-left: 5%;
+  border-right: 1px solid #eee;
+}
+.Khead > div:nth-child(2) {
+  text-align: right;
+  padding-right: 5%;
+}
+.Some-class {
+  border-right: 1px solid #eee;
+}
+.infocontainers {
+  border-bottom: 1px solid #eee;
+}
+.infocontainers:last-child {
+  border-bottom: none;
 }
