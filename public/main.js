@@ -15,7 +15,7 @@ new Vue({
   methods: {
     find() {
       this.loaderClass = " loading";
-      if (this.search.length > 4) {
+      if (this.search.length >= 4) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = {
