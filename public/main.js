@@ -14,7 +14,8 @@ new Vue({
   },
   methods: {
     find() {
-      if (this.search.length > 4) {
+      this.loaderClass = " loading";
+      if (this.search.length >= 4) {
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         var raw = {
@@ -34,6 +35,10 @@ new Vue({
             this.myData = result;
             this.loaderClass = "body-info";
             this.isSearched = true;
+            this.loaderClass = "body-info";
+            if (this.myData.length <= 0) {
+              this.search = "Хайлт илэрцгүй...";
+            }
           })
           .catch(error => console.log("error", error));
       } else {
@@ -50,6 +55,7 @@ new Vue({
       this.isSearched = false;
       this.myData = [];
       this.search = "";
+      this.loaderClass = "loading";
       this.getObInfo();
     },
     getObInfo() {
@@ -65,7 +71,7 @@ new Vue({
         headers: myHeaders,
         body: JSON.stringify(raw)
       };
-      fetch("/api/classinfo", requestOptions) //id g damjulna
+      fetch("/api/classinfo", requestOptions)
         .then(response => response.json())
         .then(result => {
           console.log("fetched myData", result);
@@ -84,6 +90,7 @@ new Vue({
               Vote: x.Багшид_өгсөн_санал
             };
           });
+          this.loaderClass = "body-info";
         })
         .catch(error => console.log("error", error));
     }
