@@ -36,6 +36,9 @@ new Vue({
             this.loaderClass = "body-info";
             this.isSearched = true;
             this.loaderClass = "body-info";
+            if (this.myData.length <= 0) {
+              this.search = "Хайлт илэрцгүй...";
+            }
           })
           .catch(error => console.log("error", error));
       } else {
