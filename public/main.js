@@ -5,7 +5,8 @@ new Vue({
     search: "",
     myData: [],
     myObj: {},
-    loaderClass: "loading"
+    loaderClass: "loading",
+    isSearched: false
   },
   methods: {
     find() {
@@ -28,6 +29,7 @@ new Vue({
         .then(result => {
           this.myData = result;
           this.loaderClass = "body-info";
+          this.isSearched = true;
           console.log(this.myData);
         })
         .catch(error => console.log("error", error));
@@ -38,10 +40,10 @@ new Vue({
     getObj(i) {
       console.log(i);
       this.myObj = i;
-      document.getElementsByClassName("option-container")[0].style.display =
-        "none";
+      this.isSearched = false;
       this.myData = [];
       this.search = "";
+      this.getObInfo();
     },
     getObInfo() {
       var myHeaders = new Headers();
