@@ -9,31 +9,35 @@ new Vue({
   },
   methods: {
     find() {
-      var myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      var raw = {
-        title: this.search
-      };
-      var requestOptions = {
-        method: "POST",
-        redirect: "follow",
-        headers: myHeaders,
-        body: JSON.stringify(raw)
-      };
-      fetch("/api/findByTitle", requestOptions)
-        .then(response => {
-          console.log(response);
-          return response.json();
-        })
-        .then(result => {
-          this.myData = result;
-          this.loaderClass = "body-info";
-          console.log(this.myData);
-        })
-        .catch(error => console.log("error", error));
-      console.log(this.myData);
-      document.getElementsByClassName("option-container")[0].style.display =
-        "block";
+      if (this.search.length > 4) {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var raw = {
+          title: this.search
+        };
+        var requestOptions = {
+          method: "POST",
+          redirect: "follow",
+          headers: myHeaders,
+          body: JSON.stringify(raw)
+        };
+        fetch("/api/findByTitle", requestOptions)
+          .then(response => {
+            console.log(response);
+            return response.json();
+          })
+          .then(result => {
+            this.myData = result;
+            this.loaderClass = "body-info";
+            console.log(this.myData);
+          })
+          .catch(error => console.log("error", error));
+        console.log(this.myData);
+        document.getElementsByClassName("option-container")[0].style.display =
+          "block";
+      } else {
+        this.search = "4-с дээш урттай үг оруулна уу?";
+      }
     },
     getObj(i) {
       console.log(i);
