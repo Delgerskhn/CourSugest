@@ -9,6 +9,7 @@
     "logs": "firebase functions:log",
     "static": "node server.js"
   },
+  "main": "server.js",
   "engines": {
     "node": "8"
   },
