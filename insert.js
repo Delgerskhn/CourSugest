@@ -1,5 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
-const uri = "mongodb://127.0.0.1:27017";
+const uri = "mongodb+srv://theg:abcdefgz9@cluster0.krs6g.azure.mongodb.net/UManage?retryWrites=true&w=majority";
 var client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true
