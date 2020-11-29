@@ -1,0 +1,1 @@
+web: node ./functions/server.js
